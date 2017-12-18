@@ -21,9 +21,9 @@ from threading import Thread
 from pathlib import Path
 import ffmpeg
 
-from .ListBoxItem import ListBoxItem
+from simpleconvert.ListBoxItem import ListBoxItem
 
-@GtkTemplate(ui='/net/bartkessels/simpleconvert/window.ui')
+@GtkTemplate(ui='/usr/local/share/simpleconvert/mainwindow.glade')
 class SimpleconvertWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'simpleconvertWindow'
 
