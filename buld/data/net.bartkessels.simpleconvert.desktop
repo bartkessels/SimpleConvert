@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Simple Convert
-Exec=simplevideoconvert
-Terminal=false
-Type=Application
-Categories=GTK;Tools
-StartupNotify=true
-Icon=media-playback-start

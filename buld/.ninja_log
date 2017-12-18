@@ -1,5 +1,0 @@
-# ninja log v5
-1	22	1513625567	src/simpleconvert.gresource	ef9e5fafb2422a44
-0	317	1513625567	data/net.bartkessels.simpleconvert.desktop	47cb2b734d5d8218
-0	335	1513625567	data/net.bartkessels.simpleconvert.appdata.xml	92ed1de647f073ec
-335	1244	0	meson-install	9317ebdf4db3de5e
