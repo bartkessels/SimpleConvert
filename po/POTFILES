@@ -1,0 +1,9 @@
+data/org.gnome.Simpleconvert.desktop.in
+data/org.gnome.Simpleconvert.appdata.xml.in
+data/org.gnome.Simpleconvert.gschema.xml
+src/window.ui
+
+
+
+src/main.py
+src/window.py

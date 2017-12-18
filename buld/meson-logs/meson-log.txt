@@ -1,0 +1,9 @@
+Build started at 2017-12-18T20:33:55.148881
+Python binary: /usr/bin/python3
+Python system: Linux
+The Meson build system
+Version: 0.43.0
+Source dir: /home/bkessels/Git-projects/Linux/simpleconvert
+Build dir: /home/bkessels/Git-projects/Linux/simpleconvert/buld
+Build type: native build
+Project name: simpleconvert
