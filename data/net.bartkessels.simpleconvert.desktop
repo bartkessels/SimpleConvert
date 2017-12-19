@@ -1,8 +1,9 @@
 [Desktop Entry]
 Name=Simple Convert
-Exec=simplevideoconvert
+Comment=Convert multiple files to another filetype
+Exec=simpleconvert
 Terminal=false
 Type=Application
 Categories=GTK;Tools
 StartupNotify=true
-Icon=media-playback-start
+Icon=video-x-generic
