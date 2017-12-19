@@ -1,12 +1,12 @@
 import os
+import sys
 from os import environ, path
 from subprocess import call
 from setuptools import setup
 from setuptools.command.install import install
 
 application_name='simpleconvert'
-prefix = environ.get('prefix', '/usr/')
-datadir = path.join(prefix, 'share')
+datadir = path.join(sys.prefix, 'share')
 
 class InstallGtk(install):
 
@@ -48,7 +48,7 @@ setup(
         'simpleconvert',
     ],
 
-    dependencies=[
+    install_requires=[
         'pygobject>=3.24',
         'ffmpeg-python>=0.1.9'
     ],
