@@ -16,6 +16,7 @@ to a specified directory.
 
 ### Regular packages
 
+- gettext
 - ffmpeg
 
 If you don't have ffmpeg installed the application won't be able to convert the files.
