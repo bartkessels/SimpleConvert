@@ -7,10 +7,20 @@
       <pattern>*.mp3</pattern>
     </patterns>
   </object>
+  <object class="GtkImage" id="img_add">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-add</property>
+  </object>
   <object class="GtkImage" id="img_convert">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-media-play</property>
+  </object>
+  <object class="GtkImage" id="img_remove">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-remove</property>
   </object>
   <template class="simpleconvertWindow" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
@@ -37,11 +47,10 @@
             <property name="column_spacing">5</property>
             <child>
               <object class="GtkButton" id="btn_add">
-                <property name="label">gtk-add</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="image">img_add</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="btn_add_clicked" swapped="no"/>
               </object>
@@ -52,11 +61,10 @@
             </child>
             <child>
               <object class="GtkButton" id="btn_remove">
-                <property name="label">gtk-remove</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
+                <property name="image">img_remove</property>
                 <property name="always_show_image">True</property>
                 <signal name="clicked" handler="btn_remove_clicked" swapped="no"/>
               </object>
