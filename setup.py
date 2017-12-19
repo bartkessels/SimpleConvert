@@ -5,7 +5,7 @@ from setuptools import setup
 from setuptools.command.install import install
 
 application_name='simpleconvert'
-prefix = environ.get('prefix', '/usr/share')
+prefix = environ.get('prefix', '/usr/')
 datadir = path.join(prefix, 'share')
 
 class InstallGtk(install):
