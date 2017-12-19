@@ -2,10 +2,6 @@
 
 Application to convert multiple files to another filetype.
 
-__NOTE__<br>
-As of right now `ninja install` doesn't work. This will be fixed
-in the next release.
-
 ## Screenshots
 
 ![Simple Convert mainwindow](data/screenshots/mainwindow.png)
@@ -18,41 +14,30 @@ to a specified directory.
 
 ## Required packages
 
-### Building
+- setuptools
+- pygobject >= 3.24
+- ffmpeg-python >= 0.1.9
 
-- meson
-- gtk3-devel
-- python3
-- pip3
-- pygobject3-devel
-- gettext
+Install these packages using `easy_install` or `pip` but make sure you
+install them for Python 3.
 
-#### Python modules
-
-- [ffmpeg-python](https://github.com/kkroening/ffmpeg-python)
-
-### Installing
-
-- pygobject3
-- gettext
 
 ## How to build
 
-__\* This is broken__
-
-Make sure you've installed PIP3 and Python3. If you've got those the first
-thing you need to install are the python modules
-
 ```
-$ pip3 install ffmpeg-python
+$ python3 setup.py install
 ```
 
-~~Now we can start building the application~~
+And then you can run `simpleconvert`.
 
+###ModuleNotFoundError
 
-~~$ meson --prefix=/usr build~~<br>
-~~$ cd build~~<br>
-~~$ ninja install~~
+If you get the `ModuleNotFoundError` make sure you installed the required
+packages for Python 3.
 
+To install the required packages for Python 3 just run
 
-~~And then you can run `simpleconvert`~~
+```
+$ python3 -m easy_install 'pygobject>=3.24'
+$ python3 -m easy_install 'ffmpeg-python>=0.1.9'
+```

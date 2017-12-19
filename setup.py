@@ -39,11 +39,8 @@ setup(
     url='https://github.com/bartkessels/simpleconvert',
 
     entry_points={
-        'setuptools.installation': [
-            'eggsecutable = simpleconvert.__main__:main'
-        ],
         'gui_scripts': [
-            'simpleconvert = __main__:main'
+            'simpleconvert = simpleconvert.__main__:main'
         ],
     },
 
@@ -51,9 +48,9 @@ setup(
         'simpleconvert',
     ],
 
-    install_requires=[
-        'pygobject',
-        'ffmpeg-python'
+    dependencies=[
+        'pygobject>=3.24',
+        'ffmpeg-python>=0.1.9'
     ],
 
     data_files=[

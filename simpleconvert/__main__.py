@@ -35,6 +35,6 @@ class Application(Gtk.Application):
             win = SimpleconvertWindow(application=self)
         win.present()
 
-def main(version):
+def main():
     app = Application()
     return app.run(sys.argv)
