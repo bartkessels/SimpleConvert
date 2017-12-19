@@ -20,10 +20,13 @@ from .gi_composites import GtkTemplate
 from threading import Thread
 from pathlib import Path
 import ffmpeg
+import os
 
 from simpleconvert.ListBoxItem import ListBoxItem
 
-@GtkTemplate(ui='/usr/share/simpleconvert/mainwindow.glade')
+UI_FILE = os.path.dirname(os.path.realpath(__file__)) + '/ui/mainwindow.glade'
+
+@GtkTemplate(ui=UI_FILE)
 class SimpleconvertWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'simpleconvertWindow'
 

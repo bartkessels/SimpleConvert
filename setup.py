@@ -53,10 +53,14 @@ setup(
         'ffmpeg-python>=0.1.9'
     ],
 
+    package_data={
+        'simpleconvert':['ui/mainwindow.glade']
+    },
+    include_package_data=True,
+
     data_files=[
-        (path.join(datadir, application_name), ['data/ui/mainwindow.glade']),
-        (path.join(datadir, 'applications'), ['data/net.bartkessels.simpleconvert.desktop']),
-        (path.join(datadir, 'appdata'), ['data/net.bartkessels.simpleconvert.appdata.xml'])
+        ('share/applications', ['data/net.bartkessels.simpleconvert.desktop']),
+        ('share/appdata', ['data/net.bartkessels.simpleconvert.appdata.xml'])
     ],
 
     cmdclass={
