@@ -46,4 +46,4 @@ class ListBoxItem(Gtk.Label):
         self.set_text(file_name)
         self.set_justify(Gtk.Justification.LEFT)
         self.set_xalign(0)
-        
+

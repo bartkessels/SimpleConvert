@@ -16,13 +16,17 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import sys
+import gettext
 import gi
 
 gi.require_version('Gtk', '3.0')
 
 from gi.repository import Gtk, Gio
+from simpleconvert.simpleconvertwindow import SimpleconvertWindow
 
-from simpleconvert.SimpleconvertWindow import SimpleconvertWindow
+localedir = '@localedir@'
+
+gettext.install('simpleconvert', localedir)
 
 class Application(Gtk.Application):
     def __init__(self):
@@ -38,3 +42,4 @@ class Application(Gtk.Application):
 def main():
     app = Application()
     return app.run(sys.argv)
+

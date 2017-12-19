@@ -19,10 +19,11 @@ from gi.repository import Gtk
 from .gi_composites import GtkTemplate
 from threading import Thread
 from pathlib import Path
+import gettext
 import ffmpeg
 import os
 
-from simpleconvert.ListBoxItem import ListBoxItem
+from simpleconvert.listboxitem import ListBoxItem
 
 UI_FILE = os.path.dirname(os.path.realpath(__file__)) + '/ui/mainwindow.glade'
 
@@ -59,7 +60,7 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
 
         if output_path == None:
             dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.WARNING,
-                                       Gtk.ButtonsType.OK, "Please select an output folder")
+                                       Gtk.ButtonsType.OK, _('Please select an output folder'))
             dialog.run()
             dialog.destroy()
 
@@ -80,7 +81,7 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
             except Exception as ex:
                 print(ex)
                 dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.WARNING,
-                                       Gtk.ButtonsType.OK, "Something went wrong converting the file <filename>")
+                                       Gtk.ButtonsType.OK, _('Something went wrong converting the file <filename>'))
                 dialog.run()
                 dialog.destroy()
 
@@ -95,10 +96,10 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
         filter_all.set_name('Multimedia')
         filter_all.add_mime_type('video/*')
 
-        file_dialog = Gtk.FileChooserDialog('Please choose a file', self,
+        file_dialog = Gtk.FileChooserDialog(_('Please choose a file'), self,
                                             Gtk.FileChooserAction.OPEN,
                                             (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-                                             'Add', Gtk.ResponseType.OK))
+                                             _('Add'), Gtk.ResponseType.OK))
 
         file_dialog.set_select_multiple(True)
         file_dialog.set_filter(filter_all)
@@ -207,3 +208,4 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
         self.btn_convert.set_sensitive(True)
         self.grd_buttons.set_sensitive(True)
         self.lb_files.set_sensitive(True)
+

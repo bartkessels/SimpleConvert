@@ -1,5 +1,8 @@
 import os
 import sys
+import subprocess
+import glob
+import pathlib
 from os import environ, path
 from subprocess import call
 from setuptools import setup
@@ -28,6 +31,23 @@ class InstallGtk(install):
         call(['update-desktop-database', '-q', path.join(datadir, 'applications')])
 
 
+def create_mo_files():
+    """Compile po files
+
+    Compile to po translation files
+    """
+    mo_files = []
+    po_files = 'po'
+    prefix = 'simpleconvert'
+
+    for po_path in glob.glob(str(pathlib.Path(prefix) / po_files)):
+        mo = pathlib.Path(po_path.replace('.po', '.mo'))
+
+        subprocess.run(['msgfmt', '-o', str(mo), po_path], check=True)
+        mo_files.append(str(mo.relative_to(prefix)))
+
+    return mo_files
+
 setup(
     name='Simple Convert',
     version='0.5',
@@ -50,11 +70,12 @@ setup(
 
     install_requires=[
         'pygobject>=3.24',
-        'ffmpeg-python>=0.1.9'
+        'ffmpeg-python>=0.1.9',
+        'python-gettext'
     ],
 
     package_data={
-        'simpleconvert':['ui/mainwindow.glade']
+        'simpleconvert':['ui/mainwindow.glade'] + create_mo_files()
     },
     include_package_data=True,
 
@@ -67,3 +88,4 @@ setup(
         'install':InstallGtk,
     },
 )
+

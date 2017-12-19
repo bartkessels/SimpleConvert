@@ -100,10 +100,10 @@
             <property name="can_focus">False</property>
             <property name="active_id">.mp3</property>
             <items>
-              <item id=".mp3" translatable="yes">MPEG-3</item>
-              <item id=".mp4" translatable="yes">MPEG-4</item>
-              <item id=".wav" translatable="yes">WAVE</item>
-              <item id=".flac" translatable="yes">FLAC</item>
+              <item id=".mp3">MPEG-3</item>
+              <item id=".mp4">MPEG-4</item>
+              <item id=".wav">WAVE</item>
+              <item id=".flac">FLAC</item>
             </items>
           </object>
           <packing>
@@ -151,7 +151,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="title">Simple Convert</property>
-        <property name="subtitle">Convert multiple files</property>
+        <property name="subtitle" translatable="yes">Convert multiple files</property>
         <property name="show_close_button">True</property>
         <child>
           <object class="GtkButton" id="btn_convert">

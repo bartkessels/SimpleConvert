@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Simple Convert
 Comment=Convert multiple files to another filetype
+Comment[nl]=Converteer verschillende bestanden naar een ander bestandstype
 Exec=simpleconvert
 Terminal=false
 Type=Application

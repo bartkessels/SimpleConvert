@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-19 22:07+0100\n"
+"PO-Revision-Date: 2017-12-19 22:07+0100\n"
+"Last-Translator: Bart Kessels <bartkessels@bk-mail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../simpleconvert/ui/mainwindow.glade.h:1
+msgid "Convert multiple files"
+msgstr "Converteer verschillende bestanden"
+
+#: ../simpleconvert/ui/mainwindow.glade.h:2
+msgid "Convert"
+msgstr "Converteren"
+
+#: ../simpleconvert/simpleconvertwindow.py:63
+msgid "Please select an output folder"
+msgstr "Selecteer a.u.b. een output map"
+
+#: ../simpleconvert/simpleconvertwindow.py:84
+msgid "Something went wrong converting the file <filename>"
+msgstr "Er is iets misgegaan tijdens het converteren van <filename>"
+
+#: ../simpleconvert/simpleconvertwindow.py:99
+msgid "Please choose a file"
+msgstr "Selecteer een bestand"
+
+#: ../simpleconvert/simpleconvertwindow.py:102
+msgid "Add"
+msgstr "Toevoegen"
+
+#, fuzzy
+#~ msgid "Simple Convert"
+#~ msgstr "Converteren"
