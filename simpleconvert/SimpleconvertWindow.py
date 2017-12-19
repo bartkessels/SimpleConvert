@@ -23,7 +23,7 @@ import ffmpeg
 
 from simpleconvert.ListBoxItem import ListBoxItem
 
-@GtkTemplate(ui='/usr/local/share/simpleconvert/mainwindow.glade')
+@GtkTemplate(ui='/usr/share/simpleconvert/mainwindow.glade')
 class SimpleconvertWindow(Gtk.ApplicationWindow):
     __gtype_name__ = 'simpleconvertWindow'
 
@@ -51,7 +51,7 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
         """
         # Get necessary information
         file_ext = self.get_export_extension()
-        output_path = self.fcbtn_output.get_uri()
+        output_path = self.fcbtn_output.get_file().get_path()
 
         if output_path == None:
             dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.WARNING,
