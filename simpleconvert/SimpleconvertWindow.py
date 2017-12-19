@@ -106,7 +106,7 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
 
             for cur_file in files:
                 file_name = cur_file.get_basename()
-                file_path = cur_file.get_uri()
+                file_path = cur_file.get_path()
 
                 file_widget = ListBoxItem(file_path, file_name)
                 self.add_file_listbox(file_widget)

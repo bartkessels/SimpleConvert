@@ -31,10 +31,7 @@ class ListBoxItem(Gtk.Label):
     def __init__(self, file_path, file_name):
         Gtk.Label.__init__(self)
 
-        # Strip file:// from file_path
-        strip_length = len('file://')
-
-        self.file_path = file_path[strip_length:].replace('%20', ' ')
+        self.file_path = file_path
         self.file_name = file_name
 
         self.setup_label(file_name)
