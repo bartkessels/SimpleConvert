@@ -40,7 +40,7 @@ setup(
 
     entry_points={
         'gui_scripts': [
-            'simpleconvert = simpleconvert.__main__:main'
+            'simpleconvert = simpleconvert.main:main'
         ],
     },
 
