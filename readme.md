@@ -14,13 +14,25 @@ to a specified directory.
 
 ## Required packages
 
+### Regular packages
+
+- ffmpeg
+
+If you don't have ffmpeg installed the application won't be able to convert the files.
+When you run it from the terminal you'll get this message:
+<br>
+```
+FileNotFoundError: [Errno 2] No such file or directory: 'ffmpeg': 'ffmpeg'
+```
+
+### Python packages
+
 - setuptools
 - pygobject >= 3.24
 - ffmpeg-python >= 0.1.9
 
 Install these packages using `easy_install` or `pip` but make sure you
 install them for Python 3.
-
 
 ## How to build
 
