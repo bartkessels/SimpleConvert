@@ -5,7 +5,7 @@ from setuptools import setup
 from setuptools.command.install import install
 
 application_name='simpleconvert'
-prefix = '/usr/local'
+prefix = environ.get('prefix', '/usr/share')
 datadir = path.join(prefix, 'share')
 
 class InstallGtk(install):
@@ -39,6 +39,9 @@ setup(
     url='https://github.com/bartkessels/simpleconvert',
 
     entry_points={
+        'setuptools.installation': [
+            'eggsecutable = simpleconvert.__main__:main'
+        ],
         'gui_scripts': [
             'simpleconvert = __main__:main'
         ],
