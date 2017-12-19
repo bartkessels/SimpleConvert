@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Simple Convert
-Exec=python3 simplevideoconvert
+Exec=simplevideoconvert
 Terminal=false
 Type=Application
 Categories=GTK;Tools

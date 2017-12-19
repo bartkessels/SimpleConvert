@@ -38,6 +38,12 @@ setup(
     license='GPLv3+',
     url='https://github.com/bartkessels/simpleconvert',
 
+    entry_points={
+        'gui_scripts': [
+            'simpleconvert = __main__:main'
+        ],
+    },
+
     packages=[
         'simpleconvert',
     ],
