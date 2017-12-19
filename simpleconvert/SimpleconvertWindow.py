@@ -36,6 +36,7 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
     fcbtn_output = GtkTemplate.Child()
     grd_buttons = GtkTemplate.Child()
     btn_convert = GtkTemplate.Child()
+    btn_remove = GtkTemplate.Child()
 
     def __init__(self, **kwargs):
         """Setup application interface"""
@@ -127,6 +128,20 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
 
         for selected_row in selected_rows:
             selected_row.destroy()
+
+        caller.set_sensitive(False)
+
+    @GtkTemplate.Callback
+    def lb_files_row_selected(self, caller, row, **kwargs):
+        """Row in lb_files is selected
+
+        Enable or disable remove button based on
+        selection
+        """
+        selected_rows = self.lb_files.get_selected_rows()
+        enable_remove_button = selected_rows is not None
+
+        self.btn_remove.set_sensitive(enable_remove_button)
 
     def add_file_listbox(self, file_widget):
         """Add a file to the listbox

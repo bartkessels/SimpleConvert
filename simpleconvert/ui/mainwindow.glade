@@ -62,6 +62,7 @@
             <child>
               <object class="GtkButton" id="btn_remove">
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="image">img_remove</property>
@@ -132,6 +133,7 @@
                     <property name="vexpand">True</property>
                     <property name="selection_mode">multiple</property>
                     <property name="activate_on_single_click">False</property>
+                    <signal name="row-selected" handler="lb_files_row_selected" swapped="no"/>
                   </object>
                 </child>
               </object>
