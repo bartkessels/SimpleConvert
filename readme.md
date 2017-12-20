@@ -54,7 +54,7 @@ $ python3 -m easy_install 'pygobject>=3.24'
 $ python3 -m easy_install 'ffmpeg-python>=0.1.9'
 ```
 
-## How to build
+## How to install
 
 ```
 $ python3 setup.py install
