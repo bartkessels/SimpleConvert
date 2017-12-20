@@ -25,7 +25,6 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
 from simpleconvert.simpleconvertwindow import SimpleconvertWindow
 
-#localedir = os.path.dirname(os.path.realpath(__file__)) + '/translations'
 gettext.install('simpleconvert')
 
 class Application(Gtk.Application):
