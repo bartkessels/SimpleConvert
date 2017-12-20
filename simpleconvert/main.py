@@ -15,6 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import sys
 import gettext
 import gi
@@ -24,9 +25,8 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, Gio
 from simpleconvert.simpleconvertwindow import SimpleconvertWindow
 
-localedir = '@localedir@'
-
-gettext.install('simpleconvert', localedir)
+#localedir = os.path.dirname(os.path.realpath(__file__)) + '/translations'
+gettext.install('simpleconvert')
 
 class Application(Gtk.Application):
     def __init__(self):
@@ -38,6 +38,7 @@ class Application(Gtk.Application):
         if not win:
             win = SimpleconvertWindow(application=self)
         win.present()
+
 
 def main():
     app = Application()

@@ -1,4 +1,5 @@
 build/
+simpleconvert/translations/*
 *.eggs/
 *.egg-info/*
 */__pychache__/

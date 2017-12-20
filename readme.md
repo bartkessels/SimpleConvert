@@ -54,3 +54,13 @@ To install the required packages for Python 3 just run
 $ python3 -m easy_install 'pygobject>=3.24'
 $ python3 -m easy_install 'ffmpeg-python>=0.1.9'
 ```
+
+## Add new translation
+
+Assuming you've created a `.po` file in the `po` directory you can now
+compile to `.po` file to a `.mo` file. The commands specified below need
+to run from the project directory.
+
+```
+$ msgfmt po/<lang_code>.po -o simpleconvert/translations/<lang_code>.mo
+```

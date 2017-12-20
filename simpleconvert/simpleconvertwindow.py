@@ -19,7 +19,6 @@ from gi.repository import Gtk
 from .gi_composites import GtkTemplate
 from threading import Thread
 from pathlib import Path
-import gettext
 import ffmpeg
 import os
 
@@ -54,17 +53,17 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
         If the file path isn't set display a
         warning
         """
-        # Get necessary information
-        file_ext = self.get_export_extension()
-        output_path = self.fcbtn_output.get_file().get_path()
-
-        if output_path == None:
+        if self.fcbtn_output.get_file() is None:
             dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.WARNING,
                                        Gtk.ButtonsType.OK, _('Please select an output folder'))
             dialog.run()
             dialog.destroy()
 
             return
+
+        # Get necessary information
+        file_ext = self.get_export_extension()
+        output_path = self.fcbtn_output.get_file().get_path()
 
         # Iterate over files
         self.lb_files.select_all()
@@ -76,7 +75,7 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
                 output_file_name = listbox_item.file_name + file_ext
                 output_file_path = output_path + '/' + output_file_name
 
-                thread_convert = Thread(target = self.convert_file, args = (listbox_item.file_path, output_file_path), daemon=True)
+                thread_convert = Thread(target = self.convert_file, args = (listbox_item.file_path, output_file_path), daemon=False)
                 thread_convert.start()
             except Exception as ex:
                 print(ex)
@@ -188,10 +187,13 @@ class SimpleconvertWindow(Gtk.ApplicationWindow):
         output_file = Path(output_file_path)
 
         if not input_file.is_dir() and not output_file.exists():
-            stream = ffmpeg.input(file_path)
-            stream = ffmpeg.output(stream, output_file_path)
+            try:
+                stream = ffmpeg.input(file_path)
+                stream = ffmpeg.output(stream, output_file_path)
 
-            ffmpeg.run(stream)
+                ffmpeg.run(stream)
+            except Exception as ex:
+                print(ex)
 
         self.stop_ui_loading()
 

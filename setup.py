@@ -1,8 +1,6 @@
 import os
 import sys
 import subprocess
-import glob
-import pathlib
 from os import environ, path
 from subprocess import call
 from setuptools import setup
@@ -10,6 +8,9 @@ from setuptools.command.install import install
 
 application_name='simpleconvert'
 datadir = path.join(sys.prefix, 'share')
+
+trandir = path.join(datadir, 'locale')
+local_podir = 'po'
 
 class InstallGtk(install):
 
@@ -22,6 +23,15 @@ class InstallGtk(install):
         if not os.path.exists(path.join(datadir, application_name)):
             os.makedirs(path.join(datadir, application_name))
 
+        print('Installing translations...')
+
+        for file in os.listdir(local_podir):
+            filename = os.fsdecode(file)
+            lang_code = filename[:-3]
+
+            if filename.endswith('.po'):
+                call(['msgfmt', path.join(local_podir, filename), '-o', path.join(trandir, lang_code, 'LC_MESSAGES', application_name + '.mo')])
+
         install.run(self)
 
         print('Updating icon cache...')
@@ -30,23 +40,6 @@ class InstallGtk(install):
         print('Updating desktop database...')
         call(['update-desktop-database', '-q', path.join(datadir, 'applications')])
 
-
-def create_mo_files():
-    """Compile po files
-
-    Compile to po translation files
-    """
-    mo_files = []
-    po_files = 'po'
-    prefix = 'simpleconvert'
-
-    for po_path in glob.glob(str(pathlib.Path(prefix) / po_files)):
-        mo = pathlib.Path(po_path.replace('.po', '.mo'))
-
-        subprocess.run(['msgfmt', '-o', str(mo), po_path], check=True)
-        mo_files.append(str(mo.relative_to(prefix)))
-
-    return mo_files
 
 setup(
     name='Simple Convert',
@@ -75,7 +68,7 @@ setup(
     ],
 
     package_data={
-        'simpleconvert':['ui/mainwindow.glade'] + create_mo_files()
+        'simpleconvert':['ui/mainwindow.glade']
     },
     include_package_data=True,
 
