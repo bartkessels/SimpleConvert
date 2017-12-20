@@ -1,6 +1,4 @@
 # List of source files containing translatable strings
 # Please keep this list sorted alphabetically
 data/net.bartkessels.simpleconvert.appdata.xml
-simpleconvert/ui/mainwindow.glade
-simpleconvert/main.py
 simpleconvert/simpleconvertwindow.py

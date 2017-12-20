@@ -1,13 +1,13 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Dutch translation for simpleconvert
+# Copyright (C) 2017 Bart Kessels
+# This file is distributed under the same license as the simpleconvert package.
+# Bart Kessels <bartkessels@bk-mail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 22:07+0100\n"
+"POT-Creation-Date: 2017-12-20 21:27+0100\n"
 "PO-Revision-Date: 2017-12-19 22:07+0100\n"
 "Last-Translator: Bart Kessels <bartkessels@bk-mail.com>\n"
 "Language-Team: \n"
@@ -18,30 +18,18 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../simpleconvert/ui/mainwindow.glade.h:1
-msgid "Convert multiple files"
-msgstr "Converteer verschillende bestanden"
-
-#: ../simpleconvert/ui/mainwindow.glade.h:2
-msgid "Convert"
-msgstr "Converteren"
-
-#: ../simpleconvert/simpleconvertwindow.py:63
+#: ../simpleconvert/simpleconvertwindow.py:58
 msgid "Please select an output folder"
 msgstr "Selecteer a.u.b. een output map"
 
-#: ../simpleconvert/simpleconvertwindow.py:84
+#: ../simpleconvert/simpleconvertwindow.py:83
 msgid "Something went wrong converting the file <filename>"
 msgstr "Er is iets misgegaan tijdens het converteren van <filename>"
 
-#: ../simpleconvert/simpleconvertwindow.py:99
+#: ../simpleconvert/simpleconvertwindow.py:98
 msgid "Please choose a file"
 msgstr "Selecteer een bestand"
 
-#: ../simpleconvert/simpleconvertwindow.py:102
+#: ../simpleconvert/simpleconvertwindow.py:101
 msgid "Add"
 msgstr "Toevoegen"
-
-#, fuzzy
-#~ msgid "Simple Convert"
-#~ msgstr "Converteren"
