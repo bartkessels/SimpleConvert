@@ -1,1 +1,1 @@
-i18n.gettext('getit', preset: 'glib')
+i18n.gettext('simpleconvert', preset: 'glib')
