@@ -1,0 +1,48 @@
+{
+	"app-id": "net.bartkessels.simpleconvert",
+	"runtime": "org.gnome.Platform",
+	"runtime-version": "master",
+	"sdk": "org.gnome.Sdk",
+	"command": "simpleconvert",
+	"finish-args": [
+		"--socket=x11",
+		"--socket=wayland",
+		"--filesystem=host",
+		"--filesystem=xdg-run/dconf",
+		"--filesystem=~/.config/dconf:ro",
+		"--talk-name=ca.desrt.dconf"
+	],
+	"build-options": {
+		"cflags": "-O2 -g",
+		"cxxflags": "-O2 -g",
+		"env": {
+			"V": "1"
+		}
+	},
+	"cleanup": [
+		"/include",
+		"/lib/pkgconfig",
+		"/man",
+		"/share/doc",
+		"/share/gtk-doc",
+		"/share/mand",
+		"/share/pkgconfig",
+
+		"*.la",
+		"*.a"
+	],
+	"modules": [
+		{
+			"name": "simpleconvert",
+			"buildsystem": "meson",
+			"builddir": true,
+			"sources": [
+				{
+					"type": "git",
+					"branch": "master",
+					"url": "https://github.com/bartkessels/simpleconvert"
+				}
+			]
+		}
+	]
+}
