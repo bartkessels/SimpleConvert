@@ -28,3 +28,5 @@ if appstream_util.found()
     args: ['validate', appstream_file]
   )
 endif
+
+subdir('icons')

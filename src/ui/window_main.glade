@@ -143,7 +143,7 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="title">Simple Convert</property>
-        <property name="subtitle">Convert multiple files</property>
+        <property name="subtitle" translatable="yes">Convert multiple files</property>
         <property name="show_close_button">True</property>
         <child>
           <object class="GtkButton" id="btn_convert">
