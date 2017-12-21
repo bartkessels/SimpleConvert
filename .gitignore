@@ -1,7 +1,4 @@
-build/
-simpleconvert/translations/*
-*.eggs/
-*.egg-info/*
-*/__pychache__/
-*~
-po/*.pot
+
+/po/*.pot
+/build
+.flatpak-builder
