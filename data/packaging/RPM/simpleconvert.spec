@@ -35,7 +35,7 @@ rm -rf $RPM_BUILD_ROOT
 %find_lang %{name}
 
 %files -f %{name}.lang
-%{bindir}/%{name}
+%{_bindir}/%{name}
 %{_datadir}/applications/net.bartkessels.%{name}.desktop
 %{_datadir}/appdata/net.bartkessels.%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/net.bartkessels.%{name}.png
