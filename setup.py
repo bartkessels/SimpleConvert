@@ -43,7 +43,7 @@ class InstallGtk(install):
 
 setup(
     name='Simple Convert',
-    version='0.5',
+    version='1.0',
     author='Bart Kessels',
     author_email='bartkessels@bk-mail.com',
     description='Application to convert multiple files to another filetype',
