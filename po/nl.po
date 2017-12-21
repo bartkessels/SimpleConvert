@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-20 21:27+0100\n"
+"POT-Creation-Date: 2017-12-21 23:45+0100\n"
 "PO-Revision-Date: 2017-12-19 22:07+0100\n"
 "Last-Translator: Bart Kessels <bartkessels@bk-mail.com>\n"
 "Language-Team: \n"
@@ -18,18 +18,67 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../simpleconvert/simpleconvertwindow.py:58
-msgid "Please select an output folder"
-msgstr "Selecteer a.u.b. een output map"
+#: ../src/ui/dialog_about.glade.h:1
+msgid ""
+"Simple Convert is a small application to convert multiple files to another "
+"filetype"
+msgstr ""
+"Simple Convert is een kleine applicatie om meerdere bestanden naar een ander "
+"bestandstype te converteren"
 
-#: ../simpleconvert/simpleconvertwindow.py:83
-msgid "Something went wrong converting the file <filename>"
-msgstr "Er is iets misgegaan tijdens het converteren van <filename>"
+#: ../src/ui/menu_app.glade.h:1
+msgid "_Shortcuts"
+msgstr "Sneltoetsen"
 
-#: ../simpleconvert/simpleconvertwindow.py:98
-msgid "Please choose a file"
-msgstr "Selecteer een bestand"
+#: ../src/ui/menu_app.glade.h:2
+msgid "_About"
+msgstr "Over"
 
-#: ../simpleconvert/simpleconvertwindow.py:101
+#: ../src/ui/menu_app.glade.h:3
+msgid "_Quit"
+msgstr "Sluiten"
+
+#: ../src/ui/window_main.glade.h:1
+msgid "Convert multiple files"
+msgstr "Converteer meerdere bestanden"
+
+#: ../src/ui/window_shortcuts.glade.h:1
+msgid "Shortcuts"
+msgstr "Sneltoetsen"
+
+#: ../src/ui/window_shortcuts.glade.h:2
+msgid "Main"
+msgstr "Algemeen"
+
+#: ../src/ui/window_shortcuts.glade.h:3
+msgid "Convert the files"
+msgstr "Bestanden converteren"
+
+#: ../src/ui/window_shortcuts.glade.h:4
+msgid "Files"
+msgstr "Bestanden"
+
+#: ../src/ui/window_shortcuts.glade.h:5
+msgid "Add a file"
+msgstr "Bestand toevoegen"
+
+#: ../src/ui/window_shortcuts.glade.h:6
+msgid "Remove selected file"
+msgstr "Geselecteerde bestand verwijderen"
+
+#. Error messages
+#: ../src/simpleconvert-messages.h:24
+msgid "You must select an output folder before you can continue"
+msgstr "Er moet een uitvoerfolder geselecteerd zijn voordat je verder kunt"
+
+#: ../src/simpleconvert-window-main.c:312
+msgid "Select files"
+msgstr "Selecteer bestanden"
+
+#: ../src/simpleconvert-window-main.c:315
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../src/simpleconvert-window-main.c:316
 msgid "Add"
 msgstr "Toevoegen"
