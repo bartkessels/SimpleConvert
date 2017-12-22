@@ -43,6 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/appdata/net.bartkessels.%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/net.bartkessels.%{name}.png
 %{_datadir}/icons/hicolor/*/apps/net.bartkessels.%{name}-symbolic.png
+%{_datadir}/icons/hicolor/*/actions/%{name}-add-symbolic.png
+%{_datadir}/icons/hicolor/*/actions/%{name}-remove-symbolic.png
 
 %changelog
 * Fri Dec 22 2017 Bart Kessels <bartkessels@bk-mail.com> 1.1

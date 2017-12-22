@@ -10,12 +10,12 @@
   <object class="GtkImage" id="img_add">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-add</property>
+    <property name="icon_name">simpleconvert-add-symbolic</property>
   </object>
   <object class="GtkImage" id="img_remove">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-remove</property>
+    <property name="icon_name">simpleconvert-remove-symbolic</property>
   </object>
   <template class="SimpleconvertWindowMain" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
