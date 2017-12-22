@@ -37,6 +37,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %{_bindir}/%{name}
 %{_datadir}/applications/net.bartkessels.%{name}.desktop
+%{_datadir}/glib-2.0/schemas/net.bartkessels.%{name}.gschema.xml
 %{_datadir}/appdata/net.bartkessels.%{name}.appdata.xml
 %{_datadir}/icons/hicolor/*/apps/net.bartkessels.%{name}.png
 %{_datadir}/icons/hicolor/*/apps/net.bartkessels.%{name}-symbolic.png
