@@ -1,4 +1,4 @@
-/* simpleconvert-window-main.h
+/* simpleconvert-notification.c
  *
  * Copyright © 2017 Bart Kessels <bartkessels@bk-mail.com>
  *
@@ -16,31 +16,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
-
-#include <glib/gi18n.h>
-#include <gtk/gtk.h>
-#include <pthread.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-#include "simpleconvert-messages.h"
 #include "simpleconvert-notification.h"
-#include "simpleconvert-settings.h"
-#include "simpleconvert-widget-listboxitem.h"
 
-G_BEGIN_DECLS
+void
+simpleconvert_notification_display (const gchar *title,
+                                    const gchar *body)
+{
+    /*
+     * Don't continue if the user doesn't want notifications
+     */
+    if (!simpleconvert_settings_get_convert_done_notification ()) {
+        return;
+    }
 
-#define SIMPLECONVERT_TYPE_WINDOW_MAIN (simpleconvert_window_main_get_type ())
+    const gchar *icon;
+    NotifyNotification *notification;
+    GError *error_notification = NULL; // Needs to be initialized immediately
 
-G_DECLARE_FINAL_TYPE (SimpleconvertWindowMain, simpleconvert_window_main,
-											SIMPLECONVERT, WINDOW_MAIN, GtkApplicationWindow)
+    icon = "net.bartkessels.sipmleconvert";
+    notification = notify_notification_new (title, body, icon);
 
-/* Window information */
-#define WINDOW_WIDTH 600
-#define WINDOW_HEIGHT 250
+    notify_notification_show (notification, &error_notification);
 
-/* Public function signatures */
-SimpleconvertWindowMain *simpleconvert_window_main_new (GApplication *app);
-
-G_END_DECLS
+    if (error_notification != NULL) {
+        g_error_free (error_notification);
+    }
+}

@@ -46,7 +46,7 @@ static void simpleconvert_widget_listboxitem_setup (SimpleconvertWidgetListboxit
  *
  */
 SimpleconvertWidgetListboxitem *
-simpleconvert_widget_listboxitem_new (const GFile *file)
+simpleconvert_widget_listboxitem_new (GFile *file)
 {
     g_assert (G_IS_FILE (file));
 

@@ -1,4 +1,4 @@
-/* simpleconvert-widget-listboxitem.h
+/* simpleconvert-notification.h
  *
  * Copyright © 2017 Bart Kessels <bartkessels@bk-mail.com>
  *
@@ -18,19 +18,11 @@
 
 #pragma once
 
-#include <gtk/gtk.h>
+#include <glib.h>
+#include <libnotify/notify.h>
 
-G_BEGIN_DECLS
-
-#define SIMPLECONVERT_TYPE_WIDGET_LISTBOXITEM (simpleconvert_widget_listboxitem_get_type ())
-
-G_DECLARE_FINAL_TYPE (SimpleconvertWidgetListboxitem, simpleconvert_widget_listboxitem,
-											SIMPLECONVERT, WIDGET_LISTBOXITEM, GtkLabel)
+#include "simpleconvert-settings.h"
 
 /* Public function signatures */
-SimpleconvertWidgetListboxitem *simpleconvert_widget_listboxitem_new (GFile *file);
-const gchar *simpleconvert_widget_listboxitem_get_file_name (SimpleconvertWidgetListboxitem *self);
-const gchar *simpleconvert_widget_listboxitem_get_file_path (SimpleconvertWidgetListboxitem *self);
-
-G_END_DECLS
-
+void simpleconvert_notification_display (const gchar *title,
+                                         const gchar *body);

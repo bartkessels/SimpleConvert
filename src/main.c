@@ -17,6 +17,7 @@
  */
 
 #include <glib/gi18n.h>
+#include <libnotify/notify.h>
 
 #include "simpleconvert-application.h"
 #include "simpleconvert-config.h"
@@ -35,9 +36,14 @@ main (int   argc,
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
 
+    /* Setup libnotify */
+    notify_init (APPLICATION_ID);
+
     /* Create and launch application */
     app = simpleconvert_application_new ();
     return_status = g_application_run (G_APPLICATION (app), argc, argv);
+
+    notify_uninit ();
     g_object_unref (G_OBJECT (app));
 
     return return_status;

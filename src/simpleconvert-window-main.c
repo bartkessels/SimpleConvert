@@ -250,6 +250,10 @@ simpleconvert_window_main_convert_files (void *ptr)
     gtk_list_box_unselect_all (GTK_LIST_BOX (self->lb_files));
     simpleconvert_window_main_set_working (self, FALSE);
 
+    /* Display notification */
+    simpleconvert_notification_display (_("Converting done"),
+                                        _("All your files are converted!"));
+
     return NULL;
 }
 

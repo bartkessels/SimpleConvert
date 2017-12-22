@@ -11,5 +11,14 @@
 			</description>
 		</key>
 
+		<key name="convert-done-noticiation" type="b">
+			<default>true</default>
+			<summary>Display notification when files are converted</summary>
+			<description>
+				If this is enabled Simple Convert will show a notification to let you
+				know the files are converted.
+			</description>
+		</key>
+
 	</schema>
 </schemalist>

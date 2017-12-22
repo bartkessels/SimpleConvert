@@ -25,8 +25,11 @@
 
 /* Settings keys */
 #define SETTINGS_KEY_OVERWRITE_OUTPUT "file-overwrite-output"
+#define SETTINGS_KEY_CONVERT_DONE_NOTICIATION "convert-done-noticiation"
 
 /* Public function signatures */
 void simpleconvert_settings_set_overwrite_output_file (gboolean overwrite_output_file);
+void simpleconvert_settings_set_convert_done_notication (gboolean convert_done_notification);
 
 gboolean simpleconvert_settings_get_overwrite_output_file ();
+gboolean simpleconvert_settings_get_convert_done_notification ();

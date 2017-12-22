@@ -9,7 +9,7 @@
       <object class="GtkBox">
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
+        <property name="spacing">5</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox" id="btn_box_apply_cancel">
             <property name="can_focus">False</property>
@@ -69,6 +69,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="label" translatable="yes">Always overwrite output file</property>
+                <property name="justify">right</property>
               </object>
               <packing>
                 <property name="left_attach">0</property>
@@ -86,6 +87,33 @@
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="lbl_convert_done_notification">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Show notification when converting is done</property>
+                <property name="justify">right</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_convert_done_notification">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">start</property>
+                <property name="hexpand">True</property>
+                <property name="active">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
               </packing>
             </child>
           </object>

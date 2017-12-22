@@ -40,6 +40,16 @@ simpleconvert_settings_set_overwrite_output_file (gboolean overwrite_output_file
     g_settings_set_boolean (settings, SETTINGS_KEY_OVERWRITE_OUTPUT, overwrite_output_file);
 }
 
+void
+simpleconvert_settings_set_convert_done_notication (gboolean convert_done_notification)
+{
+    GSettings *settings;
+
+    settings = simpleconvert_settings_get_gsettings ();
+
+    g_settings_set_boolean (settings, SETTINGS_KEY_CONVERT_DONE_NOTICIATION, convert_done_notification);
+}
+
 gboolean
 simpleconvert_settings_get_overwrite_output_file ()
 {
@@ -50,6 +60,18 @@ simpleconvert_settings_get_overwrite_output_file ()
     overwrite_output = g_settings_get_boolean (settings, SETTINGS_KEY_OVERWRITE_OUTPUT);
 
     return overwrite_output;
+}
+
+gboolean
+simpleconvert_settings_get_convert_done_notification ()
+{
+    GSettings *settings;
+    gboolean convert_done_notification;
+
+    settings = simpleconvert_settings_get_gsettings ();
+    convert_done_notification = g_settings_get_boolean (settings, SETTINGS_KEY_CONVERT_DONE_NOTICIATION);
+
+    return convert_done_notification;
 }
 
  /*
