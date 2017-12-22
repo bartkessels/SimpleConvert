@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-21 23:45+0100\n"
+"POT-Creation-Date: 2017-12-22 10:14+0100\n"
 "PO-Revision-Date: 2017-12-19 22:07+0100\n"
 "Last-Translator: Bart Kessels <bartkessels@bk-mail.com>\n"
 "Language-Team: \n"
@@ -18,6 +18,18 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../data/net.bartkessels.simpleconvert.gschema.xml.h:1
+msgid "Overwrite output files"
+msgstr "Output bestanden overschrijven"
+
+#: ../data/net.bartkessels.simpleconvert.gschema.xml.h:2
+msgid ""
+"If this is set to true the files in the output folder that have the same "
+"name as one of the files you're converting will be overwritten."
+msgstr ""
+"Als dit op waar is gezet worden de bestanden in de output folder metdezelfde "
+"naam als één van de bestanden die je wilt converteren overschreven."
+
 #: ../src/ui/dialog_about.glade.h:1
 msgid ""
 "Simple Convert is a small application to convert multiple files to another "
@@ -26,17 +38,33 @@ msgstr ""
 "Simple Convert is een kleine applicatie om meerdere bestanden naar een ander "
 "bestandstype te converteren"
 
+#: ../src/ui/dialog_settings.glade.h:1 ../src/simpleconvert-window-main.c:317
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../src/ui/dialog_settings.glade.h:2
+msgid "Apply"
+msgstr "Toepassen"
+
+#: ../src/ui/dialog_settings.glade.h:3
+msgid "Always overwrite output file"
+msgstr "Output bestanden altijd overschrijven"
+
 #: ../src/ui/menu_app.glade.h:1
 msgid "_Shortcuts"
-msgstr "Sneltoetsen"
+msgstr "_Sneltoetsen"
 
 #: ../src/ui/menu_app.glade.h:2
-msgid "_About"
-msgstr "Over"
+msgid "_Preferences"
+msgstr "_Instellingen"
 
 #: ../src/ui/menu_app.glade.h:3
+msgid "_About"
+msgstr "_Over"
+
+#: ../src/ui/menu_app.glade.h:4
 msgid "_Quit"
-msgstr "Sluiten"
+msgstr "S_luiten"
 
 #: ../src/ui/window_main.glade.h:1
 msgid "Convert multiple files"
@@ -71,14 +99,10 @@ msgstr "Geselecteerde bestand verwijderen"
 msgid "You must select an output folder before you can continue"
 msgstr "Er moet een uitvoerfolder geselecteerd zijn voordat je verder kunt"
 
-#: ../src/simpleconvert-window-main.c:312
+#: ../src/simpleconvert-window-main.c:314
 msgid "Select files"
 msgstr "Selecteer bestanden"
 
-#: ../src/simpleconvert-window-main.c:315
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: ../src/simpleconvert-window-main.c:316
+#: ../src/simpleconvert-window-main.c:318
 msgid "Add"
 msgstr "Toevoegen"
