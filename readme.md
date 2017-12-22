@@ -60,3 +60,13 @@ just run the flatpak install command.
 ```
 $ flatpak install simpleconvert.flatpak
 ```
+
+## COPR
+
+If you have Fedora and don't want to build Simple Convert from source you can easily install it using dnf
+copr.
+
+```
+$ dnf copr enable bartkessels/simpleconvert
+$ dnf install simpleconvert
+```
