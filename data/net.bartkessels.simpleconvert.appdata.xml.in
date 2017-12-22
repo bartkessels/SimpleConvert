@@ -37,6 +37,12 @@
 	</provides>
 
 	<releases>
+		<release version="1.1" date="2017-12-22">
+			<description>
+				<p>Add settings window</p>
+			</description>
+		</release>
+
 		<release version="1.0" date="2017-12-21">
 			<description>
 				<p>Initial Release</p>
