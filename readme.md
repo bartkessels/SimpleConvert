@@ -19,12 +19,14 @@ to a specified directory.
 - gcc
 - meson
 - gtk3-devel
+- libnotify-devel
 - gettext
 
 ### Installing
 
 - gtk3
 - ffmpeg
+- libnotify
 
 ## How to build
 

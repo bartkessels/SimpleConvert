@@ -10,10 +10,12 @@ Source0:	https://github.com/bartkessels/%{name}/archive/%{version}/%{name}-%{ver
 BuildRequires:	gcc
 BuildRequires:	meson
 BuildRequires:	gtk3-devel
+BuildRequires:	libnotify-devel
 BuildRequires:	gettext
 
 Requires:	gtk3
 Requires:	ffmpeg
+Requires:	libnotify
 
 %description
 You can convert multiple files (at once!) to another filetype using FFMPEG.
