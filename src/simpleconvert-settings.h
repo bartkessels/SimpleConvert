@@ -1,4 +1,4 @@
-/* simpleconvert-window-main.h
+/* simpleconvert-settings.h
  *
  * Copyright © 2017 Bart Kessels <bartkessels@bk-mail.com>
  *
@@ -18,28 +18,15 @@
 
 #pragma once
 
-#include <glib/gi18n.h>
-#include <gtk/gtk.h>
-#include <pthread.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include <gio/gio.h>
+#include <glib.h>
 
-#include "simpleconvert-messages.h"
-#include "simpleconvert-settings.h"
-#include "simpleconvert-widget-listboxitem.h"
+#include "simpleconvert-app.h"
 
-G_BEGIN_DECLS
-
-#define SIMPLECONVERT_TYPE_WINDOW_MAIN (simpleconvert_window_main_get_type ())
-
-G_DECLARE_FINAL_TYPE (SimpleconvertWindowMain, simpleconvert_window_main,
-											SIMPLECONVERT, WINDOW_MAIN, GtkApplicationWindow)
-
-/* Window information */
-#define WINDOW_WIDTH 600
-#define WINDOW_HEIGHT 250
+/* Settings keys */
+#define SETTINGS_KEY_OVERWRITE_OUTPUT "file-overwrite-output"
 
 /* Public function signatures */
-SimpleconvertWindowMain *simpleconvert_window_main_new (GApplication *app);
+void simpleconvert_settings_set_overwrite_output_file (gboolean overwrite_output_file);
 
-G_END_DECLS
+gboolean simpleconvert_settings_get_overwrite_output_file ();

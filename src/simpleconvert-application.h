@@ -21,12 +21,11 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
+#include "simpleconvert-app.h"
 #include "simpleconvert-dialog-about.h"
+#include "simpleconvert-dialog-settings.h"
 #include "simpleconvert-window-main.h"
 #include "simpleconvert-window-shortcuts.h"
-
-/* Application information */
-#define APPLICATION_ID "net.bartkessels.simpleconvert"
 
 G_BEGIN_DECLS
 

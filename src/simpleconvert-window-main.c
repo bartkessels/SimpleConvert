@@ -228,20 +228,22 @@ simpleconvert_window_main_convert_files (void *ptr)
                                    NULL);
 
         /*
-         * Make sure the output file does not exist
+         * Check if we need to overwrite the output file
          */
-        if (access (output_file, F_OK) == -1) {
-
-            /*
-             * Create the ffmpeg command
-             */
-            const gchar *command = g_strconcat("ffmpeg -i \"",
-                                               input_file,
-                                               "\" \"",
-                                               output_file, "\"",
-                                               NULL);
-            system(command);
+        const gchar *overwrite_output = " -n";
+        if (simpleconvert_settings_get_overwrite_output_file ()) {
+            overwrite_output = " -y";
         }
+
+        /*
+         * Create the ffmpeg command
+         */
+        const gchar *command = g_strconcat("ffmpeg", overwrite_output, " -i \"",
+                                           input_file,
+                                           "\" \"",
+                                           output_file, "\"",
+                                           NULL);
+        system(command);
     }
 
     g_list_free (selected_rows);

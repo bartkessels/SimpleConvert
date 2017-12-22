@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="getit">
+	<schema id="net.bartkessels.simpleconvert" path="/net/bartkessels/simpleconvert/">
+
+		<key name="file-overwrite-output" type="b">
+			<default>false</default>
+			<summary>Overwrite output files</summary>
+			<description>
+				If this is set to true the files in the output folder that have the same
+				name as one of the files you're converting will be overwritten.
+			</description>
+		</key>
+
+	</schema>
+</schemalist>

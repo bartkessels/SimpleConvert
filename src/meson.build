@@ -2,6 +2,8 @@ simpleconvert_sources = [
   'main.c',
   'simpleconvert-application.c',
   'simpleconvert-dialog-about.c',
+  'simpleconvert-dialog-settings.c',
+  'simpleconvert-settings.c',
   'simpleconvert-widget-listboxitem.c',
   'simpleconvert-window-main.c',
   'simpleconvert-window-shortcuts.c'

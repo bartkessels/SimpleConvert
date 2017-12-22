@@ -38,6 +38,9 @@ static void simpleconvert_application_cb_startup (GApplication *app);
 static void simpleconvert_application_cb_shortcuts (GSimpleAction *action,
                                                     GVariant      *parameter,
                                                     gpointer       user_data);
+static void simpleconvert_application_cb_preferences (GSimpleAction *action,
+                                                      GVariant      *parameter,
+                                                      gpointer       user_data);
 static void simpleconvert_application_cb_about (GSimpleAction *action,
                                                 GVariant      *parameter,
                                                 gpointer       user_data);
@@ -52,6 +55,7 @@ static void simpleconvert_application_cb_quit (GSimpleAction *action,
  */
 const GActionEntry app_actions[] = {
         { "shortcuts", simpleconvert_application_cb_shortcuts },
+        { "preferences", simpleconvert_application_cb_preferences },
         { "about", simpleconvert_application_cb_about },
         { "quit", simpleconvert_application_cb_quit }
 };
@@ -166,6 +170,25 @@ simpleconvert_application_cb_shortcuts (GSimpleAction *action,
     window_shortcuts = simpleconvert_window_shortcuts_new (window);
 
     gtk_widget_show (GTK_WIDGET (window_shortcuts));
+}
+
+static void
+simpleconvert_application_cb_preferences (GSimpleAction *action,
+                                          GVariant      *parameter,
+                                          gpointer       user_data)
+{
+    g_assert (GTK_IS_APPLICATION (user_data));
+
+    GtkApplication *app;
+    GtkWindow *window;
+    SimpleconvertDialogSettings *dialog_settings;
+
+    app = GTK_APPLICATION (user_data);
+    window = gtk_application_get_active_window (app);
+    dialog_settings = simpleconvert_dialog_settings_new (window);
+
+    gtk_dialog_run (GTK_DIALOG (dialog_settings));
+    gtk_widget_destroy (GTK_WIDGET (dialog_settings));
 }
 
 static void

@@ -1,4 +1,4 @@
-/* simpleconvert-window-main.h
+/* simpleconvert-app.h
  *
  * Copyright © 2017 Bart Kessels <bartkessels@bk-mail.com>
  *
@@ -18,28 +18,5 @@
 
 #pragma once
 
-#include <glib/gi18n.h>
-#include <gtk/gtk.h>
-#include <pthread.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-#include "simpleconvert-messages.h"
-#include "simpleconvert-settings.h"
-#include "simpleconvert-widget-listboxitem.h"
-
-G_BEGIN_DECLS
-
-#define SIMPLECONVERT_TYPE_WINDOW_MAIN (simpleconvert_window_main_get_type ())
-
-G_DECLARE_FINAL_TYPE (SimpleconvertWindowMain, simpleconvert_window_main,
-											SIMPLECONVERT, WINDOW_MAIN, GtkApplicationWindow)
-
-/* Window information */
-#define WINDOW_WIDTH 600
-#define WINDOW_HEIGHT 250
-
-/* Public function signatures */
-SimpleconvertWindowMain *simpleconvert_window_main_new (GApplication *app);
-
-G_END_DECLS
+/* Application information */
+#define APPLICATION_ID "net.bartkessels.simpleconvert"

@@ -4,6 +4,7 @@
 
 		<!-- Dialogs -->
 		<file alias="dialog-about.ui" preprocess="xml-stripblanks">ui/dialog_about.glade</file>
+		<file alias="dialog-settings.ui" preprocess="xml-stripblanks">ui/dialog_settings.glade</file>
 
 		<!-- Menu's -->
 		<file alias="menu-app.ui" preprocess="xml-stripblanks">ui/menu_app.glade</file>
