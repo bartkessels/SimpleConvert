@@ -26,10 +26,13 @@
 /* Settings keys */
 #define SETTINGS_KEY_OVERWRITE_OUTPUT "file-overwrite-output"
 #define SETTINGS_KEY_CONVERT_DONE_NOTICIATION "convert-done-noticiation"
+#define SETTINGS_KEY_REMOVE_CONVERTED_FROM_LIST "remove-from-list-converted"
 
 /* Public function signatures */
 void simpleconvert_settings_set_overwrite_output_file (gboolean overwrite_output_file);
 void simpleconvert_settings_set_convert_done_notication (gboolean convert_done_notification);
+void simpleconvert_settings_set_remove_converted_from_list (gboolean remove_converted_from_list);
 
 gboolean simpleconvert_settings_get_overwrite_output_file ();
 gboolean simpleconvert_settings_get_convert_done_notification ();
+gboolean simpleconvert_settings_get_remove_converted_from_list ();

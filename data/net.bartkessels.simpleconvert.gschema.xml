@@ -20,5 +20,14 @@
 			</description>
 		</key>
 
+		<key name="remove-from-list-converted" type="b">
+			<default>true</default>
+			<summary>Remove file from list after it's converted</summary>
+			<description>
+				If this is enabled the file will be removed from the list after
+				it is converted.
+			</description>
+		</key>
+
 	</schema>
 </schemalist>

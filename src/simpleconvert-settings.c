@@ -50,6 +50,16 @@ simpleconvert_settings_set_convert_done_notication (gboolean convert_done_notifi
     g_settings_set_boolean (settings, SETTINGS_KEY_CONVERT_DONE_NOTICIATION, convert_done_notification);
 }
 
+void
+simpleconvert_settings_set_remove_converted_from_list (gboolean remove_converted_from_list)
+{
+    GSettings *settings;
+
+    settings = simpleconvert_settings_get_gsettings ();
+
+    g_settings_set_boolean (settings, SETTINGS_KEY_REMOVE_CONVERTED_FROM_LIST, remove_converted_from_list);
+}
+
 gboolean
 simpleconvert_settings_get_overwrite_output_file ()
 {
@@ -69,9 +79,21 @@ simpleconvert_settings_get_convert_done_notification ()
     gboolean convert_done_notification;
 
     settings = simpleconvert_settings_get_gsettings ();
-    convert_done_notification = g_settings_get_boolean (settings, SETTINGS_KEY_CONVERT_DONE_NOTICIATION);
+    convert_done_notification = g_settings_get_boolean (settings, SETTINGS_KEY_REMOVE_CONVERTED_FROM_LIST);
 
     return convert_done_notification;
+}
+
+gboolean
+simpleconvert_settings_get_remove_converted_from_list ()
+{
+    GSettings *settings;
+    gboolean remove_from_list_converted;
+
+    settings = simpleconvert_settings_get_gsettings ();
+    remove_from_list_converted = g_settings_get_boolean (settings, SETTINGS_KEY_REMOVE_CONVERTED_FROM_LIST);
+
+    return remove_from_list_converted;
 }
 
  /*
