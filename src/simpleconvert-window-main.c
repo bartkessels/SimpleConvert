@@ -210,9 +210,11 @@ simpleconvert_window_main_convert_files (void *ptr)
         GtkWidget *selected_row;
         GList *selected_row_children;
         SimpleconvertWidgetListboxitem *widget_lbi;
-        const gchar *input_file;
+        const gchar *input_file_path;
         const gchar *file_name;
         const gchar *output_file;
+        GFile *input_file;
+        gboolean file_exists;
 
         /*
          * Get SimpleconvertWidgetListbox from the currently selected row
@@ -221,11 +223,22 @@ simpleconvert_window_main_convert_files (void *ptr)
         selected_row_children = gtk_container_get_children (GTK_CONTAINER (selected_row));
         widget_lbi = g_list_nth_data (selected_row_children, 0);
 
-        input_file = simpleconvert_widget_listboxitem_get_file_path (widget_lbi);
+        input_file_path = simpleconvert_widget_listboxitem_get_file_path (widget_lbi);
+        input_file = g_file_new_for_path (input_file_path);
         file_name = simpleconvert_widget_listboxitem_get_file_name (widget_lbi);
         output_file = g_strconcat (output_path, "/",
                                    file_name, extension,
                                    NULL);
+
+        /*
+         * Check if the file we're going to
+         * convert actually exists
+         */
+        file_exists = g_file_query_exists (input_file, NULL);
+
+        if (!file_exists) {
+            continue;
+        }
 
         /*
          * Check if we need to overwrite the output file
@@ -239,11 +252,13 @@ simpleconvert_window_main_convert_files (void *ptr)
          * Create the ffmpeg command
          */
         const gchar *command = g_strconcat("ffmpeg", overwrite_output, " -i \"",
-                                           input_file,
+                                           input_file_path,
                                            "\" \"",
                                            output_file, "\"",
                                            NULL);
         system(command);
+
+        g_object_unref (input_file);
     }
 
     g_list_free (selected_rows);
