@@ -63,6 +63,7 @@
             <property name="margin_bottom">5</property>
             <property name="row_spacing">5</property>
             <property name="column_spacing">5</property>
+            <property name="column_homogeneous">True</property>
             <child>
               <object class="GtkLabel" id="lbl_overwrite_output_file">
                 <property name="visible">True</property>
@@ -114,6 +115,32 @@
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="lbl_remove_converted_from_list">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">end</property>
+                <property name="label" translatable="yes">Remove file from list after convertion</property>
+                <property name="justify">right</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_remove_converted_from_list">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">start</property>
+                <property name="hexpand">True</property>
+                <property name="active">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">2</property>
               </packing>
             </child>
           </object>

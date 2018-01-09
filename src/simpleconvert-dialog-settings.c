@@ -26,6 +26,7 @@ struct _SimpleconvertDialogSettings {
     GtkButton *btn_cancel;
     GtkSwitch *switch_overwrite_output_file;
     GtkSwitch *switch_convert_done_notification;
+    GtkSwitch *switch_remove_converted_from_list;
 };
 
 G_DEFINE_TYPE (SimpleconvertDialogSettings, simpleconvert_dialog_settings, GTK_TYPE_DIALOG)
@@ -81,6 +82,7 @@ simpleconvert_dialog_settings_class_init (SimpleconvertDialogSettingsClass *klas
     gtk_widget_class_bind_template_child (widget_class, SimpleconvertDialogSettings, btn_cancel);
     gtk_widget_class_bind_template_child (widget_class, SimpleconvertDialogSettings, switch_overwrite_output_file);
     gtk_widget_class_bind_template_child (widget_class, SimpleconvertDialogSettings, switch_convert_done_notification);
+    gtk_widget_class_bind_template_child (widget_class, SimpleconvertDialogSettings, switch_remove_converted_from_list);
 }
 
 static void
@@ -91,6 +93,7 @@ simpleconvert_dialog_settings_init (SimpleconvertDialogSettings *self)
 
     gboolean overwrite_output_file;
     gboolean convert_done_notification;
+    gboolean remove_converted_from_list;
 
     gtk_widget_init_template (GTK_WIDGET (self));
 
@@ -104,10 +107,12 @@ simpleconvert_dialog_settings_init (SimpleconvertDialogSettings *self)
     /* Load settings */
     overwrite_output_file = simpleconvert_settings_get_overwrite_output_file ();
     convert_done_notification = simpleconvert_settings_get_convert_done_notification ();
+    remove_converted_from_list = simpleconvert_settings_get_remove_converted_from_list ();
 
     /* Display settings in UI */
     gtk_switch_set_active (self->switch_overwrite_output_file, overwrite_output_file);
     gtk_switch_set_active (self->switch_convert_done_notification, convert_done_notification);
+    gtk_switch_set_active (self->switch_remove_converted_from_list, remove_converted_from_list);
 }
 
  /*
@@ -125,13 +130,16 @@ simpleconvert_dialog_settings_cb_btn_apply_clicked (GtkWidget *caller,
     SimpleconvertDialogSettings *self;
     gboolean overwrite_output_file;
     gboolean convert_done_notification;
+    gboolean remove_converted_from_list;
 
     self = SIMPLECONVERT_DIALOG_SETTINGS (user_data);
     overwrite_output_file = gtk_switch_get_state (self->switch_overwrite_output_file);
     convert_done_notification = gtk_switch_get_state (self->switch_convert_done_notification);
+    remove_converted_from_list = gtk_switch_get_state (self->switch_remove_converted_from_list);
 
     simpleconvert_settings_set_overwrite_output_file (overwrite_output_file);
     simpleconvert_settings_set_convert_done_notication (convert_done_notification);
+    simpleconvert_settings_set_remove_converted_from_list (remove_converted_from_list);
 
     gtk_dialog_response (GTK_DIALOG (self), GTK_RESPONSE_OK);
 }

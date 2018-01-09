@@ -259,6 +259,10 @@ simpleconvert_window_main_convert_files (void *ptr)
         system(command);
 
         g_object_unref (input_file);
+
+        if (simpleconvert_settings_get_remove_converted_from_list ()) {
+            gtk_widget_destroy (selected_row);
+        }
     }
 
     g_list_free (selected_rows);
