@@ -47,7 +47,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/actions/%{name}-remove-symbolic.png
 
 %changelog
-* Fri Jan 19 2018 Bart Kessels <bartkessels@bk-mail.com>
+* Fri Jan 19 2018 Bart Kessels <bartkessels@bk-mail.com> 1.3
 - Fix possible crash when input file doesn't exist
 - Add option to remove file from list when done converting
 
