@@ -1,5 +1,5 @@
 desktop_file = i18n.merge_file(
-  input: 'net.bartkessels.simpleconvert.desktop.in',
+  input: 'net.bartkessels.simpleconvert.desktop',
   output: 'net.bartkessels.simpleconvert.desktop',
   type: 'desktop',
   po_dir: '../po',

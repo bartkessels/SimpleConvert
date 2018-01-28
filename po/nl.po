@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-09 21:53+0100\n"
+"POT-Creation-Date: 2018-01-28 21:29+0100\n"
 "PO-Revision-Date: 2017-12-19 22:07+0100\n"
 "Last-Translator: Bart Kessels <bartkessels@bk-mail.com>\n"
 "Language-Team: \n"
@@ -17,6 +17,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/net.bartkessels.simpleconvert.desktop:3
+msgid "Simple Convert"
+msgstr "Simple Convert"
+
+#: ../data/net.bartkessels.simpleconvert.desktop:4
+msgid "Convert multiple files to another filetype"
+msgstr "Converteer meerdere bestanden naar een anders bestandstype"
+
+#: ../data/net.bartkessels.simpleconvert.desktop:10
+msgid "net.bartkessels.simpleconvert"
+msgstr "net.bartkessels.simpleconvert"
 
 #: ../data/net.bartkessels.simpleconvert.gschema.xml.h:1
 msgid "Overwrite output files"
@@ -62,7 +74,7 @@ msgstr ""
 "Simple Convert is een kleine applicatie om meerdere bestanden naar een ander "
 "bestandstype te converteren"
 
-#: ../src/ui/dialog_settings.glade.h:1 ../src/simpleconvert-window-main.c:336
+#: ../src/ui/dialog_settings.glade.h:1 ../src/simpleconvert-window-main.c:340
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -132,18 +144,18 @@ msgid "You must select an output folder before you can continue"
 msgstr "Er moet een uitvoerfolder geselecteerd zijn voordat je verder kunt"
 
 #. Display notification
-#: ../src/simpleconvert-window-main.c:269
+#: ../src/simpleconvert-window-main.c:273
 msgid "Converting done"
 msgstr "Converteren is klaar"
 
-#: ../src/simpleconvert-window-main.c:270
+#: ../src/simpleconvert-window-main.c:274
 msgid "All your files are converted!"
 msgstr "Al je bestanden zijn geconverteerd!"
 
-#: ../src/simpleconvert-window-main.c:333
+#: ../src/simpleconvert-window-main.c:337
 msgid "Select files"
 msgstr "Selecteer bestanden"
 
-#: ../src/simpleconvert-window-main.c:337
+#: ../src/simpleconvert-window-main.c:341
 msgid "Add"
 msgstr "Toevoegen"
