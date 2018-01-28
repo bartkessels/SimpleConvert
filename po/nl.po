@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-28 21:29+0100\n"
+"POT-Creation-Date: 2018-01-28 21:43+0100\n"
 "PO-Revision-Date: 2017-12-19 22:07+0100\n"
 "Last-Translator: Bart Kessels <bartkessels@bk-mail.com>\n"
 "Language-Team: \n"
@@ -18,9 +18,23 @@ msgstr ""
 "X-Generator: Poedit 2.0.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ../data/net.bartkessels.simpleconvert.appdata.xml.in.h:1
 #: ../data/net.bartkessels.simpleconvert.desktop:3
 msgid "Simple Convert"
 msgstr "Simple Convert"
+
+#: ../data/net.bartkessels.simpleconvert.appdata.xml.in.h:2
+msgid "Easily convert multiple files"
+msgstr "Converteer gemakkelijk meerdere bestanden"
+
+#: ../data/net.bartkessels.simpleconvert.appdata.xml.in.h:3
+msgid ""
+"Convert multiple files at once using an easy to use interface. Simple "
+"Convert uses FFMPEG to convert the files."
+msgstr ""
+"Converteer meerdere bestanden tegelijk met een gemakkelijk te "
+"gebruikeninterface. Simple Convert gebruikt FFMPEG om de bestanden te "
+"converteren"
 
 #: ../data/net.bartkessels.simpleconvert.desktop:4
 msgid "Convert multiple files to another filetype"
