@@ -1,5 +1,5 @@
 Name:		simpleconvert
-Version:	1.3
+Version:	2.0
 Release:	1%{dist}
 Summary:	Simple Convert is a small application to convert multiple files to another filetype
 
@@ -47,6 +47,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/icons/hicolor/*/actions/%{name}-remove-symbolic.png
 
 %changelog
+* Wed Feb 14 2018 Bart Kessels <bartkessels@bk-mail.com> 2.0
+- Update converting thread
+- Update appstream translation
+
 * Fri Jan 19 2018 Bart Kessels <bartkessels@bk-mail.com> 1.3
 - Fix possible crash when input file doesn't exist
 - Add option to remove file from list when done converting

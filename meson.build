@@ -1,5 +1,5 @@
 project('simpleconvert','c',
-	version: '1.2',
+	version: '2.0',
 	meson_version: '>= 0.40.0',
 )
 i18n = import('i18n')
