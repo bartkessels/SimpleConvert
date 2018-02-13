@@ -46,7 +46,13 @@ static void simpleconvert_window_main_add_file_to_list (SimpleconvertWindowMain 
                                                         GFile                   *file);
 static void simpleconvert_window_main_set_working (SimpleconvertWindowMain *self,
                                                    gboolean                 working);
-static void *simpleconvert_window_main_convert_files (void *ptr);
+static void simpleconvert_window_main_convert_file (GTask        *task,
+                                                    gpointer      source_object,
+                                                    gpointer      task_data,
+                                                    GCancellable *cancellable);
+static void simpleconvert_window_main_convert_done (GObject      *source_object,
+                                                    GAsyncResult *result,
+                                                    gpointer      user_data);
 
 /* Callback functions */
 static gboolean simpleconvert_window_main_register_shortcuts (GtkWidget   *caller,
@@ -186,94 +192,89 @@ simpleconvert_window_main_set_working (SimpleconvertWindowMain *self,
     gtk_widget_set_sensitive (GTK_WIDGET (self->grd_main), !working);
 }
 
-static void *
-simpleconvert_window_main_convert_files (void *ptr)
+static void
+simpleconvert_window_main_convert_file (GTask        *task,
+                                        gpointer      source_object,
+                                        gpointer      task_data,
+                                        GCancellable *cancellable)
 {
+    g_assert (SIMPLECONVERT_IS_WINDOW_MAIN (source_object));
+    g_assert (GTK_IS_WIDGET (task_data));
+
     SimpleconvertWindowMain *self;
-    GList *selected_rows;
-    guint total_selected_rows;
+    GtkWidget *selected_row;
+    SimpleconvertWidgetListboxitem *selected_lbi;
     const gchar *output_path;
     const gchar *extension;
+    const gchar *input_file_name;
+    const gchar *input_file_path;
+    const gchar *output_file_path;
+    const gchar *overwrite_output;
+    const gchar *command;
+    FILE *fp;
 
-    self = (SimpleconvertWindowMain *)ptr;
-    simpleconvert_window_main_set_working (self, TRUE);
-    gtk_list_box_select_all (GTK_LIST_BOX (self->lb_files));
-    selected_rows = gtk_list_box_get_selected_rows (GTK_LIST_BOX (self->lb_files));
-    total_selected_rows = g_list_length (selected_rows);
+    self = SIMPLECONVERT_WINDOW_MAIN (source_object);
+    selected_row = GTK_WIDGET (task_data);
+    selected_lbi = g_list_nth_data (gtk_container_get_children (GTK_CONTAINER (selected_row)), 0);
+
     output_path = simpleconvert_window_main_get_output_path (self);
     extension = simpleconvert_window_main_get_selected_extension (self);
+    input_file_name = simpleconvert_widget_listboxitem_get_file_name (selected_lbi);
+    input_file_path = simpleconvert_widget_listboxitem_get_file_path (selected_lbi);
+    output_file_path = g_strconcat (output_path, "/", input_file_name, extension, NULL);
 
     /*
-     * Iterate over every selected row
+     * Check if we need to overwrite the output file
      */
-    for (int selected_rows_iterator = 0; selected_rows_iterator < total_selected_rows; selected_rows_iterator++) {
-        GtkWidget *selected_row;
-        GList *selected_row_children;
-        SimpleconvertWidgetListboxitem *widget_lbi;
-        const gchar *input_file_path;
-        const gchar *file_name;
-        const gchar *output_file;
-        GFile *input_file;
-        gboolean file_exists;
-
-        /*
-         * Get SimpleconvertWidgetListbox from the currently selected row
-         */
-        selected_row = g_list_nth_data (selected_rows, selected_rows_iterator);
-        selected_row_children = gtk_container_get_children (GTK_CONTAINER (selected_row));
-        widget_lbi = g_list_nth_data (selected_row_children, 0);
-
-        input_file_path = simpleconvert_widget_listboxitem_get_file_path (widget_lbi);
-        input_file = g_file_new_for_path (input_file_path);
-        file_name = simpleconvert_widget_listboxitem_get_file_name (widget_lbi);
-        output_file = g_strconcat (output_path, "/",
-                                   file_name, extension,
-                                   NULL);
-
-        /*
-         * Check if the file we're going to
-         * convert actually exists
-         */
-        file_exists = g_file_query_exists (input_file, NULL);
-
-        if (!file_exists) {
-            continue;
-        }
-
-        /*
-         * Check if we need to overwrite the output file
-         */
-        const gchar *overwrite_output = " -n";
-        if (simpleconvert_settings_get_overwrite_output_file ()) {
-            overwrite_output = " -y";
-        }
-
-        /*
-         * Create the ffmpeg command
-         */
-        const gchar *command = g_strconcat("ffmpeg", overwrite_output, " -i \"",
-                                           input_file_path,
-                                           "\" \"",
-                                           output_file, "\"",
-                                           NULL);
-        system(command);
-
-        g_object_unref (input_file);
-
-        if (simpleconvert_settings_get_remove_converted_from_list ()) {
-            gtk_widget_destroy (selected_row);
-        }
+    overwrite_output = " -n";
+    if (simpleconvert_settings_get_overwrite_output_file ()) {
+        overwrite_output = " -y";
     }
 
-    g_list_free (selected_rows);
-    gtk_list_box_unselect_all (GTK_LIST_BOX (self->lb_files));
-    simpleconvert_window_main_set_working (self, FALSE);
+    /*
+     * Create the ffmpeg command
+     */
+    command = g_strconcat("ffmpeg", overwrite_output, " -i \"",
+                          input_file_path,
+                          "\" \"",
+                          output_file_path, "\"",
+                          NULL);
 
-    /* Display notification */
-    simpleconvert_notification_display (_("Converting done"),
-                                        _("All your files are converted!"));
+    fp = popen (command, "r");
 
-    return NULL;
+    if (fp == NULL) {
+        g_print ("Failed to convert %s to %s\n", input_file_path, output_file_path);
+        return;
+    }
+
+    pclose (fp);
+}
+
+static void
+simpleconvert_window_main_convert_done (GObject      *source_object,
+                                        GAsyncResult *result,
+                                        gpointer      user_data)
+{
+    g_assert (SIMPLECONVERT_IS_WINDOW_MAIN (source_object));
+    g_assert (GTK_IS_WIDGET (user_data));
+
+    SimpleconvertWindowMain *self;
+    GtkWidget *selected_row;
+
+    self = SIMPLECONVERT_WINDOW_MAIN (source_object);
+    selected_row = GTK_WIDGET (user_data);
+
+    if (simpleconvert_settings_get_remove_converted_from_list ()) {
+        gtk_widget_destroy (selected_row);
+    }
+
+    /*
+     * Update UI if there are no records anymore
+     */
+    if (g_list_length (gtk_list_box_get_selected_rows (GTK_LIST_BOX (self->lb_files))) == 0) {
+        gtk_list_box_unselect_all (GTK_LIST_BOX (self->lb_files));
+        simpleconvert_window_main_set_working (self, FALSE);
+    }
 }
 
 /*
@@ -408,7 +409,8 @@ simpleconvert_window_main_cb_btn_convert_clicked (GtkWidget *caller,
     SimpleconvertWindowMain *self;
     const gchar *output_path;
     GtkWidget *dialog_error;
-    pthread_t thread;
+    GList *selected_rows;
+    guint total_selected_rows;
 
     self = SIMPLECONVERT_WINDOW_MAIN (user_data);
     output_path = simpleconvert_window_main_get_output_path (self);
@@ -429,12 +431,29 @@ simpleconvert_window_main_cb_btn_convert_clicked (GtkWidget *caller,
         return;
     }
 
-    /*
-     * Run convert method on another thread so
-     * we don't hang the UI thread
-     */
-    pthread_create (&thread, NULL,
-                    simpleconvert_window_main_convert_files, (void *)self);
+    simpleconvert_window_main_set_working (self, TRUE);
+    gtk_list_box_select_all (GTK_LIST_BOX (self->lb_files));
+    selected_rows = gtk_list_box_get_selected_rows (GTK_LIST_BOX (self->lb_files));
+    total_selected_rows = g_list_length (selected_rows);
+
+    for (int i = 0; i < total_selected_rows; i++) {
+        GtkWidget *selected_row;
+        GTask *convert_task;
+
+        selected_row = g_list_nth_data (selected_rows, i);
+
+        convert_task = g_task_new (self,
+                                   NULL,
+                                   (void *) simpleconvert_window_main_convert_done,
+                                   selected_row);
+        g_task_set_task_data (convert_task,
+                              selected_row,
+                              NULL);
+        g_task_run_in_thread (convert_task,
+                              (void *) simpleconvert_window_main_convert_file);
+    }
+
+    g_list_free (selected_rows);
 }
 
 static void
