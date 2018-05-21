@@ -8,9 +8,11 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     ui->setupUi(this);
 
     /* Load all preferences into ui */
+    QString ffmpegBinary = Preferences::getFFmpegBinary();
     bool overwriteOutput = Preferences::getOverwriteOutput();
     bool showNotificationConverted = Preferences::getShowNotificationWhenConverted();
 
+    ui->editFFmpegBinary->setText(ffmpegBinary);
     ui->cbOverwriteOutput->setChecked(overwriteOutput);
     ui->cbShowNotificationConverted->setChecked(showNotificationConverted);
 }
@@ -27,9 +29,11 @@ PreferencesDialog::~PreferencesDialog()
  */
 void PreferencesDialog::on_buttonBox_accepted()
 {
+    QString ffmpegBinary = ui->editFFmpegBinary->text();
     bool overwriteOutput = ui->cbOverwriteOutput;
     bool showNotificationConverted = ui->cbShowNotificationConverted;
 
+    Preferences::setFFmpegBinary(ffmpegBinary);
     Preferences::setOverwriteOutput(overwriteOutput);
     Preferences::setShowNotificationWhenConverted(showNotificationConverted);
 

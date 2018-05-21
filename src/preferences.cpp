@@ -1,5 +1,11 @@
 #include "preferences.h"
 
+void Preferences::setFFmpegBinary(QString binary)
+{
+    QSettings *settings = Preferences::getSettings();
+    settings->setValue(FFMPEG_BINARY, binary);
+}
+
 void Preferences::setOverwriteOutput(bool overwriteOutput)
 {
     QSettings *settings = Preferences::getSettings();
@@ -10,6 +16,12 @@ void Preferences::setShowNotificationWhenConverted(bool showNotificationWhenConv
 {
     QSettings *settings = Preferences::getSettings();
     settings->setValue(SHOW_NOTIFICATION_CONVERTED, showNotificationWhenConverted);
+}
+
+QString Preferences::getFFmpegBinary()
+{
+    QSettings *settings = Preferences::getSettings();
+    return settings->value(FFMPEG_BINARY, "ffmpeg").toString();
 }
 
 bool Preferences::getOverwriteOutput()

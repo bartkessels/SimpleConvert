@@ -81,7 +81,7 @@ void MainWindow::on_btnSelectOutputFolder_clicked()
  */
 void MainWindow::on_actionConvert_Files_triggered()
 {
-    QString ffmpegBinary("ffmpeg");
+    QString ffmpegBinary = Preferences::getFFmpegBinary();
 
     int totalFilesToConvert = ui->lvFiles->count();
     if (totalFilesToConvert < 1) {

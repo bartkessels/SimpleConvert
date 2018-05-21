@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>653</width>
-    <height>103</height>
+    <width>668</width>
+    <height>144</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,6 +18,23 @@
     <normaloff>:/icons/simpleconvert</normaloff>:/icons/simpleconvert</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>5</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="lblFFmpegBinary">
+       <property name="text">
+        <string>FFMPEG Binary:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="editFFmpegBinary"/>
+     </item>
+    </layout>
+   </item>
    <item>
     <widget class="QCheckBox" name="cbOverwriteOutput">
      <property name="text">
