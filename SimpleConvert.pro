@@ -63,7 +63,7 @@ macx {
 
     target.path = $$BINDIR
 
-    icon.files = resources/linux/icons/hicolor/*
+    icon.files = resources/linux/icons/*
     icon.path = $$DATADIR/icons/hicolor
 
     desktop.files = resources/linux/net.bartkessels.simpleconvert.desktop
