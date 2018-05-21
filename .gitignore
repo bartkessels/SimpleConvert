@@ -1,4 +1,7 @@
-*~
-/po/*.pot
-/build
-.flatpak-builder
+.*.stash
+*.pro.user
+
+Makefile
+
+build
+bin

@@ -1,6 +1,6 @@
 # Simple Convert
 
-Application to convert multiple files to another filetype.
+Application to convert multiple files to another filetype using FFMPEG.
 
 ## Screenshots
 
@@ -8,32 +8,27 @@ Application to convert multiple files to another filetype.
 
 ## What can I do with it?
 
-You can convert multiple files (at once!) to another filetype using FFMPEG.
-This application provides an easy to understand UI and will convert all the files
-to a specified directory.
+SimpleConvert is a small application to convert video and/or
+audio files to any filetype using ffmpeg. This application aims
+to provide an easy to understand interface so everyone will be
+able to use the power of ffmpeg.
 
 ## Required packages
 
 ### Building
 
-- gcc
-- meson
-- gtk3-devel
-- libnotify-devel
-- gettext
+- qt5-devel
 
 ### Installing
 
-- gtk3
+- qt5
 - ffmpeg
-- libnotify
 
 ## How to build
 
 ```
-$ meson --prefix=/usr build
-$ cd build
-$ ninja install
+$ qmake
+$ make install
 ```
 
 And then run `simpleconvert`
@@ -43,7 +38,7 @@ And then run `simpleconvert`
 ```
 $ cd data/packaging/RPM
 $ spectool -g simpleconvert.spec
-$ fedpkg --release f26 local
+$ fedpkg --release f28 local
 ```
 
 This will create a RPM file which you can install using you package manager.
@@ -61,14 +56,4 @@ just run the flatpak install command.
 
 ```
 $ flatpak install simpleconvert.flatpak
-```
-
-## COPR
-
-If you have Fedora and don't want to build Simple Convert from source you can easily install it using dnf
-copr.
-
-```
-$ dnf copr enable bartkessels/simpleconvert
-$ dnf install simpleconvert
 ```

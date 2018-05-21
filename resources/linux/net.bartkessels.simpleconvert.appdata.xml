@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 Bart Kessels <bartkessels@bk-mail.com> -->
+<component type="desktop">
+	<id>net.bartkessels.simpleconvert.desktop</id>
+	<metadata_licence>CC0</metadata_licence>
+	<project_license>GPL-3.0+</project_license>
+	<name>Simple Convert</name>
+	<summary>Easily convert multiple files</summary>
+	<translation type="gettext">simpleconvert</translation>
+
+	<description>
+		<p>
+			SimpleConvert is a small application to convert video and/or
+			audio files to any filetype using ffmpeg.
+		</p>
+		<p>	
+           This application aims to provide an easy to understand interface so
+           everyone will be able to use the power of ffmpeg
+       </p>
+	</description>
+
+	<launchable type="desktop-id">net.bartkessels.simpleconvert.desktop</launchable>
+
+	<screenshots>
+		<screenshot type="default">
+			<caption>Main screen of Simple Convert</caption>
+			<image width="624" height="351">https://github.com/bartkessels/simpleconvert/raw/master/data/screenshots/mainwindow.png</image>
+		</screenshot>
+	</screenshots>
+
+	<url type="homepage">https://github.com/bartkessels/simpleconvert</url>
+	<developer_name>Bart Kessels</developer_name>
+	<update_contact>bartkessels_AT_bk-mail.com</update_contact>
+
+	<languages>
+		<lang percentage="100%">en_US</lang>
+		<lang percentage="100%">nl_NL</lang>
+	</languages>
+
+	<provides>
+		<binary>simpleconvert</binary>
+	</provides>
+
+	<releases>
+		<release version="3.0" date="2018-05-21">
+			<p>Rewrite to Qt</p>
+		</release>
+		<release version="2.0" date="2018-02-14">
+			<p>This release fixed/added:</p>
+			<ul>
+				<li>Update converting thread</li>
+				<li>Update appstream translation</li>
+			</ul>
+		</release>
+
+		<release version="1.3" date="2018-01-19">
+			<description>
+				<p>This release fixed/added:</p>
+				<ul>
+					<li>Fix possible crash when input file doesn't exist</li>
+					<li>Add option to remove file from list when done converting</li>
+				</ul>
+			</description>
+		</release>
+		<release version="1.2" date="2017-12-22">
+			<description>
+				<p>This release fixed/added:</p>
+				<ul>
+					<li>Add notification support</li>
+					<li>Ship own add and remove icons</li>
+				</ul>
+			</description>
+		</release>
+
+		<release version="1.1" date="2017-12-22">
+			<description>
+				<p>This release fixed/added:</p>
+				<ul>
+					<li>Add window for managing settings</li>
+				</ul>
+			</description>
+		</release>
+
+		<release version="1.0" date="2017-12-21" />
+	</releases>
+
+</component>
