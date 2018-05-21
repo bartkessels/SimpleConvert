@@ -1,0 +1,27 @@
+{
+	"app-id": "net.bartkessels.SimpleConvert",
+	"runtime": "org.kde.Platform",
+	"runtime-version": "5.9",
+	"sdk": "org.kde.Sdk",
+	"command": "SimpleConvert",
+	"finish-args": [
+		"--share=ipc",
+		"--socket=x11",
+		"--socket=wayland",
+		"--filesystem=host"
+	],
+	"modules": [
+		{
+			"name": "simpleconvert",
+			"buildsystem": "qmake",
+			"builddir": true,
+			"sources": [
+				{
+					"type": "git",
+					"branch": "master",
+					"url": "https://github.com/bartkessels/simpleconvert"
+				}
+			]
+		}
+	]
+}
