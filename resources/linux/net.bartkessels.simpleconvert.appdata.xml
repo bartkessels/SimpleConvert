@@ -14,8 +14,8 @@
 			audio files to any filetype using ffmpeg.
 		</p>
 		<p>	
-           This application aims to provide an easy to understand interface so
-           everyone will be able to use the power of ffmpeg
+           SimpleConvert aims to provide an easy to understand interface so
+           everyone will be able to use the power of ffmpeg.
        </p>
 	</description>
 
@@ -24,7 +24,7 @@
 	<screenshots>
 		<screenshot type="default">
 			<caption>Main screen of Simple Convert</caption>
-			<image width="624" height="351">https://github.com/bartkessels/simpleconvert/raw/master/data/screenshots/mainwindow.png</image>
+			<image width="1614" height="942">https://github.com/bartkessels/simpleconvert/raw/master/data/screenshots/mainwindow.png</image>
 		</screenshot>
 	</screenshots>
 
