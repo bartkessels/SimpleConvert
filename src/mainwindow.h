@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QFile>
+#include <QMovie>
 #include <QDebug>
 
 #include "listitemfile.h"

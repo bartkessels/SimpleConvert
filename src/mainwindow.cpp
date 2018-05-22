@@ -7,12 +7,20 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QMovie *movie = new QMovie(":/icons/loading");
+    ui->lblLoadingIndicator->setMovie(movie);
+    ui->lblLoadingIndicator->show();
+    movie->start();
     ui->vLayoutMainButtons->setAlignment(Qt::AlignTop);
     updateUI(false, 0);
 }
 
 MainWindow::~MainWindow()
 {
+    if (ffmpegProcess != NULL && ffmpegProcess->isOpen()) {
+        ffmpegProcess->kill();
+    }
+
     delete ui;
 }
 
@@ -225,11 +233,12 @@ QString MainWindow::getOutputFilePath(QString inputFileName)
  */
 void MainWindow::updateUI(bool filesConverting, int totalFilesToConvert)
 {
-
     ui->centralWidget->setEnabled(!filesConverting);
+    ui->pbStatus->setEnabled(filesConverting);
 
     ui->lblStatus->setVisible(filesConverting);
     ui->pbStatus->setVisible(filesConverting);
+    ui->lblLoadingIndicator->setVisible(filesConverting);
 
     ui->lblStatus->setText(tr("Converting %1 file(s)...").arg(totalFilesToConvert));
     ui->pbStatus->setRange(0, totalFilesToConvert);

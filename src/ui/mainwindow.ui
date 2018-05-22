@@ -185,6 +185,13 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="lblLoadingIndicator">
+        <property name="text">
+         <string notr="true">LOADING</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
    </layout>
