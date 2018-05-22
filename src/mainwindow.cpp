@@ -17,7 +17,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    ffmpegProcess->kill();
+    /* Kill current process if there
+     * are files being converted
+     */
+    if (filesConverted > 0) {
+        ffmpegProcess->kill();
+    }
+
     delete ui;
 }
 
