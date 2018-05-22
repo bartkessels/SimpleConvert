@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/icons">
-        <file alias="icon_add">resources/icons/add.svg</file>
-        <file alias="icon_remove">resources/icons/remove.svg</file>
-        <file alias="folder">resources/icons/select_folder.svg</file>
-        <file alias="simpleconvert">resources/icons/net.bartkessels.simpleconvert.svg</file>
-        <file alias="loading">resources/icons/loader.gif</file>
-    </qresource>
-</RCC>
