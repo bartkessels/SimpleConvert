@@ -36,9 +36,11 @@ private slots:
     void on_actionPreferences_triggered();
 
 private:
+    void processNextFile();
     QString getOutputFilePath(QString inputFileName);
     void updateUI(bool filesConverting, int totalFilesToConvert);
 
     Ui::MainWindow *ui;
+    QProcess *ffmpegProcess;
     int filesConverted = 0;
 };

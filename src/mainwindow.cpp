@@ -81,8 +81,6 @@ void MainWindow::on_btnSelectOutputFolder_clicked()
  */
 void MainWindow::on_actionConvert_Files_triggered()
 {
-    QString ffmpegBinary = Preferences::getFFmpegBinary();
-
     int totalFilesToConvert = ui->lvFiles->count();
     if (totalFilesToConvert < 1) {
         return;
@@ -99,29 +97,7 @@ void MainWindow::on_actionConvert_Files_triggered()
     }
 
     updateUI(true, totalFilesToConvert);
-
-    /* Iterate over files inside the listview */
-    for (int i = 0; i < totalFilesToConvert; i++) {
-        ListItemFile *currentFile = dynamic_cast<ListItemFile*>(ui->lvFiles->item(i));
-
-        QStringList ffmpegArguments;
-        ffmpegArguments.append("-i");
-        ffmpegArguments.append(currentFile->getFilePath());
-        ffmpegArguments.append(getOutputFilePath(currentFile->getFileName()));
-
-        /* Check if we should overwrite the output file if it exists */
-        if (Preferences::getOverwriteOutput()) {
-            ffmpegArguments.append("-y");
-        } else {
-            ffmpegArguments.append("-n");
-        }
-
-        /* Create and run new process */
-        QProcess *ffmpegProcess = new QProcess(this);
-        connect (ffmpegProcess, SIGNAL(finished(int)), this, SLOT(on_fileConverted(int)));
-        ffmpegProcess->setProcessChannelMode(QProcess::MergedChannels);
-        ffmpegProcess->start(ffmpegBinary, ffmpegArguments);
-    }
+    processNextFile();
 }
 
 /**
@@ -170,7 +146,7 @@ void MainWindow::on_actionAbout_SimpleConvert_triggered()
  */
 void MainWindow::on_fileConverted(int exitCode)
 {
-    Q_UNUSED(exitCode)
+    Q_UNUSED (exitCode)
 
     int totalFilesToConvert = ui->lvFiles->count();
     filesConverted++;
@@ -179,15 +155,46 @@ void MainWindow::on_fileConverted(int exitCode)
 
     if (filesConverted >= totalFilesToConvert) {
         filesConverted = 0;
-
         updateUI(false, 0);
+        ffmpegProcess->deleteLater();
 
         /* Check if we need to show a notification */
         if (Preferences::getShowNotificationWhenConverted()) {
             QMessageBox::information(this, tr("Converting Finished"),
                                      tr("All your files are converted"));
         }
+    } else {
+        processNextFile();
     }
+}
+
+/**
+ * @brief MainWindow::processNextFile
+ *
+ * Convert next file in the listview
+ */
+void MainWindow::processNextFile()
+{
+    QString ffmpegBinary = Preferences::getFFmpegBinary();
+    int nextFileIndex = filesConverted;
+    ListItemFile *currentFile = dynamic_cast<ListItemFile*>(ui->lvFiles->item(nextFileIndex));
+
+    QStringList ffmpegArguments;
+    ffmpegArguments.append("-i");
+    ffmpegArguments.append(currentFile->getFilePath());
+    ffmpegArguments.append(getOutputFilePath(currentFile->getFileName()));
+
+    /* Check if we should overwrite the output file if it exists */
+    if (Preferences::getOverwriteOutput()) {
+        ffmpegArguments.append("-y");
+    } else {
+        ffmpegArguments.append("-n");
+    }
+
+    ffmpegProcess = new QProcess(this);
+    connect (ffmpegProcess, SIGNAL(finished(int)), this, SLOT(on_fileConverted(int)));
+    ffmpegProcess->setProcessChannelMode(QProcess::MergedChannels);
+    ffmpegProcess->start(ffmpegBinary, ffmpegArguments);
 }
 
 /**
