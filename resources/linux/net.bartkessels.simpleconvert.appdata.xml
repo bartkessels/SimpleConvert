@@ -4,7 +4,7 @@
 	<id>net.bartkessels.simpleconvert.desktop</id>
 	<metadata_licence>CC0</metadata_licence>
 	<project_license>GPL-3.0+</project_license>
-	<name>Simple Convert</name>
+	<name>SimpleConvert</name>
 	<summary>Easily convert multiple files</summary>
 	<translation type="gettext">simpleconvert</translation>
 
@@ -23,8 +23,12 @@
 
 	<screenshots>
 		<screenshot type="default">
-			<caption>Main screen of Simple Convert</caption>
-			<image width="1614" height="942">https://github.com/bartkessels/simpleconvert/raw/master/data/screenshots/mainwindow.png</image>
+			<caption>Main screen of SimpleConvert</caption>
+			<image width="848" height="505">https://github.com/bartkessels/simpleconvert/raw/master/data/screenshots/mainwindow.png</image>
+		</screenshot>
+		<screenshot>
+			<caption>SimpleConvert when converting files</caption>
+			<image width="848" height="505">https://github.com/bartkessels/simpleconvert/raw/master/data/screenshots/mainwindow_converting.png</image>
 		</screenshot>
 	</screenshots>
 
