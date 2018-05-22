@@ -21,6 +21,9 @@
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
      <layout class="QHBoxLayout" name="hLayoutCentralWidget">
+      <property name="spacing">
+       <number>5</number>
+      </property>
       <item>
        <layout class="QVBoxLayout" name="vLayoutMain">
         <property name="spacing">
@@ -188,7 +191,7 @@
       <item>
        <widget class="QLabel" name="lblLoadingIndicator">
         <property name="text">
-         <string notr="true">LOADING</string>
+         <string notr="true"/>
         </property>
        </widget>
       </item>

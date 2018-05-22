@@ -233,8 +233,11 @@ QString MainWindow::getOutputFilePath(QString inputFileName)
  */
 void MainWindow::updateUI(bool filesConverting, int totalFilesToConvert)
 {
-    ui->centralWidget->setEnabled(!filesConverting);
-    ui->pbStatus->setEnabled(filesConverting);
+    ui->lvFiles->setEnabled(!filesConverting);
+    ui->btnAddFile->setEnabled(!filesConverting);
+    ui->btnRemoveFile->setEnabled(!filesConverting);
+    ui->cbOutputType->setEnabled(!filesConverting);
+    ui->btnSelectOutputFolder->setEnabled(!filesConverting);
 
     ui->lblStatus->setVisible(filesConverting);
     ui->pbStatus->setVisible(filesConverting);
