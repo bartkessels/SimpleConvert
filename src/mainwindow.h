@@ -30,11 +30,11 @@ private slots:
     void on_btnRemoveFile_clicked();
     void on_btnSelectOutputFolder_clicked();
     void on_actionConvert_Files_triggered();
+    void on_actionStop_conversion_triggered();
+    void on_actionPreferences_triggered();
     void on_actionAbout_Qt_triggered();
     void on_actionAbout_SimpleConvert_triggered();
     void on_fileConverted(int exitCode);
-
-    void on_actionPreferences_triggered();
 
 private:
     void processNextFile();
@@ -44,4 +44,5 @@ private:
     Ui::MainWindow *ui;
     QProcess *ffmpegProcess;
     int filesConverted = 0;
+    bool canceled = false;
 };

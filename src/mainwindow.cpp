@@ -17,10 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    if (ffmpegProcess != NULL && ffmpegProcess->isOpen()) {
-        ffmpegProcess->kill();
-    }
-
+    ffmpegProcess->kill();
     delete ui;
 }
 
@@ -109,6 +106,25 @@ void MainWindow::on_actionConvert_Files_triggered()
 }
 
 /**
+ * @brief MainWindow::on_actionStop_conversion_triggered
+ *
+ * Stop converting files if any conversion is going on and
+ * the user wants to stop it
+ */
+void MainWindow::on_actionStop_conversion_triggered()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Stop Conversion"), tr("Are you sure you want to"
+                                                                                              "stop the conversion?"),
+                                                              QMessageBox::Yes|QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        ffmpegProcess->kill();
+        canceled = true;
+        updateUI(false, 0);
+    }
+}
+
+/**
  * @brief MainWindow::on_actionPreferences_triggered
  *
  * Open preferences dialog
@@ -161,16 +177,18 @@ void MainWindow::on_fileConverted(int exitCode)
 
     ui->pbStatus->setValue(filesConverted);
 
-    if (filesConverted >= totalFilesToConvert) {
-        filesConverted = 0;
+    if (filesConverted >= totalFilesToConvert || canceled) {
         updateUI(false, 0);
         ffmpegProcess->deleteLater();
 
         /* Check if we need to show a notification */
-        if (Preferences::getShowNotificationWhenConverted()) {
+        if (Preferences::getShowNotificationWhenConverted() && !canceled) {
             QMessageBox::information(this, tr("Converting Finished"),
                                      tr("All your files are converted"));
         }
+
+        filesConverted = 0;
+        canceled = false;
     } else {
         processNextFile();
     }
@@ -233,6 +251,9 @@ QString MainWindow::getOutputFilePath(QString inputFileName)
  */
 void MainWindow::updateUI(bool filesConverting, int totalFilesToConvert)
 {
+    ui->actionConvert_Files->setEnabled(!filesConverting);
+    ui->actionStop_conversion->setEnabled(filesConverting);
+
     ui->lvFiles->setEnabled(!filesConverting);
     ui->btnAddFile->setEnabled(!filesConverting);
     ui->btnRemoveFile->setEnabled(!filesConverting);
