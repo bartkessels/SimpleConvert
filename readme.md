@@ -1,10 +1,12 @@
-# Simple Convert
+# SimpleConvert
 
 Application to convert multiple files to another filetype using FFMPEG.
 
 ## Screenshots
 
-![Simple Convert mainwindow](data/screenshots/mainwindow.png)
+![SimpleConvert mainwindow](data/screenshots/mainwindow.png)
+
+![SimpleConvert when converting files](data/screenshots/mainwindow_converting.png)
 
 ## What can I do with it?
 
