@@ -11,7 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 DEFINES += QT_DEPRECATED_WARNINGS
 DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
 
-TARGET = simpleconvert
+TARGET = SimpleConvert
 TEMPLATE = app
 
 DESTDIR = bin
@@ -42,11 +42,6 @@ TRANSLATIONS = \
 
 RESOURCES += resources.qrc
 
-isEmpty(QMAKE_LRELEASE) {
-    win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\lrelease-qt5.exe
-    else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease-qt5
-}
-
 macx {
     ICON = resources/mac/net.bartkessels.simpleconvert.icns
 } else:win32 {
@@ -64,6 +59,8 @@ macx {
         DATADIR = $$PREFIX/share
     }
 
+    DEFINES += DATADIR=\\\"$${DATADIR}/getit\\\"
+
     target.path = $$BINDIR
 
     icon.files = resources/linux/icons/*
@@ -75,13 +72,8 @@ macx {
     appdata.files = resources/linux/net.bartkessels.simpleconvert.appdata.xml
     appdata.path = $$DATADIR/appdata/
 
-    #qm.files = translations/*.qm
-    #qm.path = $$DATADIR/net.bartkessels.simpleconvert/translations
-
-    qm.input = TRANSLATIONS
+    qm.files = translations/*.qm
     qm.path = $$DATADIR/net.bartkessels.simpleconvert/translations
-    qm.output = $$DATADIR/net.bartkessels.simpleconvert/translations
-    qm.commands = $$QMAKE_LRELEASE SimpleConvert.pro
 
     INSTALLS += \
         target \
