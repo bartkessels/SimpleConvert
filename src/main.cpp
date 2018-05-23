@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <QFileInfo>
 #include <QLocale>
 #include <QTranslator>
 #include <QLibraryInfo>
@@ -7,8 +8,18 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    QString appName = QCoreApplication::applicationName().toLower();
     QString locale = QLocale::system().name();
     QString translationsPath = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+    QString appDirectory = app.applicationDirPath();
+
+#if defined(Q_OS_MAC)
+    QFileInfo scTranslationsPath(appDirectory + "/../../../data/");
+#elif defined(Q_OS_UNIX)
+    QFileInfo scTranslationsPath(appDirectory + "/../share/net.bartkessels." + appName + "/translations/");
+#else
+    QFileInfo scTranslationsPath(appDirectory + "/data/");
+#endif
 
     /* Load Qt translations */
     QTranslator qtTranslator;
@@ -19,24 +30,14 @@ int main(int argc, char *argv[])
         app.installTranslator(&qtTranslator);
     }
 
-    /* Load Qt Base translations */
-    QTranslator qtBaseTranslator;
-    bool qtBaseTranslationsFound = qtBaseTranslator.load("qtbase_" + locale,
-                                                         translationsPath);
-
-    if (qtBaseTranslationsFound) {
-        app.installTranslator(&qtBaseTranslator);
-    }
-
     /* Load SimpleConvert translations */
     QTranslator scTranslator;
-    bool scTranslationsFound = scTranslator.load("simpleconvert_" + locale,
-                                                 translationsPath);
+    bool scTranslationsFound = scTranslator.load(appName + "_" + locale,
+                                                 scTranslationsPath.absolutePath());
 
     if (scTranslationsFound) {
         app.installTranslator(&scTranslator);
     }
-
     /* Display main window */
     MainWindow w;
     w.show();

@@ -20,6 +20,8 @@ MOC_DIR = build
 UI_DIR = build
 RCC_DIR = build
 
+include($$PWD/updateqm.pri)
+
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
@@ -41,11 +43,6 @@ TRANSLATIONS = \
     translations/simpleconvert_nl.ts
 
 RESOURCES += resources.qrc
-
-isEmpty(QMAKE_LRELEASE) {
-    win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\lrelease-qt5.exe
-    else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease-qt5
-}
 
 macx {
     ICON = resources/mac/net.bartkessels.simpleconvert.icns
@@ -74,14 +71,9 @@ macx {
 
     appdata.files = resources/linux/net.bartkessels.simpleconvert.appdata.xml
     appdata.path = $$DATADIR/appdata/
-
-    #qm.files = translations/*.qm
-    #qm.path = $$DATADIR/net.bartkessels.simpleconvert/translations
-
-    qm.input = TRANSLATIONS
+    
+    qm.files = translations/*.qm
     qm.path = $$DATADIR/net.bartkessels.simpleconvert/translations
-    qm.output = $$DATADIR/net.bartkessels.simpleconvert/translations
-    qm.commands = $$QMAKE_LRELEASE SimpleConvert.pro
 
     INSTALLS += \
         target \
