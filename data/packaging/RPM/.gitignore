@@ -1,4 +1,5 @@
 simpleconvert*
 results*
+.build*
 *.rpm
 *.tar.gz
