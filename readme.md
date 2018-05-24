@@ -50,7 +50,9 @@ To be able to run SimpleConvert you need to copy all the
 necessary Qt `.dll` files to the same location as `simpleconvert.exe`
 so the binary can find the required libraries.
 
-## Generate RPM package
+## Packaging
+
+### RPM package
 
 ```
 $ cd data/packaging/RPM
@@ -60,7 +62,7 @@ $ fedpkg --release f28 local
 
 This will create a RPM file which you can install using you package manager.
 
-## Generate flatpak bundle
+### Flatpak bundle
 
 ```
 $ cd data/packaging/flatpak
@@ -79,4 +81,15 @@ Once installed you can run it from flatpak
 
 ```
 $ flatpak run net.bartkessels.SimpleConvert
+```
+
+## Pre-built binaries
+
+### RPM from COPR
+
+If you're running fedora you can easily install SimpleConvert from [COPR](https://copr.fedorainfracloud.org/coprs/bartkessels/simpleconvert/).
+
+```
+$ dnf copr enable bartkessels/simpleconvert
+$ dnf install simpleconvert
 ```
