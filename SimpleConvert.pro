@@ -72,7 +72,7 @@ macx {
     appdata.files = resources/linux/net.bartkessels.simpleconvert.appdata.xml
     appdata.path = $$DATADIR/appdata/
     
-    qm.files = translations/*.qm
+    qm.files = TRANSLATIONS
     qm.path = $$DATADIR/net.bartkessels.simpleconvert/translations
 
     INSTALLS += \
