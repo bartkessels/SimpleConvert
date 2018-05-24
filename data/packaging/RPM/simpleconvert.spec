@@ -21,6 +21,8 @@ Requires:		ffmpeg
 SimpleConvert is a small application to convert video and/or audio files to any filetype using ffmpeg.
 This application aims to provide an easy to understand interface so everyone will be able to use the power of ffmpeg.
 
+%global debug_package %{nil}
+
 %prep
 %autosetup
 
@@ -34,7 +36,7 @@ make install
 
 %files
 %{_bindir}/simpleconvert
-%{_datarootdir}/net.bartkessels.simpleconvert/*
+%{_datarootdir}/net.bartkessels.simpleconvert/translations/*
 %{_datarootdir}/appdata/net.bartkessels.simpleconvert.appdata.xml
 %{_datarootdir}/applications/net.bartkessels.simpleconvert.desktop
 %{_datarootdir}/icons/hicolor/*/apps/net.bartkessels.simpleconvert.*
