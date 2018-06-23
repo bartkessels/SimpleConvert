@@ -46,6 +46,13 @@
 	</provides>
 
 	<releases>
+                <release version="3.1" date="2018-06-23">
+                    <p>This release fixed:</p>
+                    <ul>
+                        <li>Memory leaks</li>
+                        <li>Cancel button in preferences window</li>
+                    </ul>
+                </release>
 		<release version="3.0" date="2018-05-21">
 			<p>Rewrite to Qt</p>
 		</release>
