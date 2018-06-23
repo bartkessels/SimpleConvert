@@ -42,6 +42,7 @@ private:
     void updateUI(bool filesConverting, int totalFilesToConvert);
 
     Ui::MainWindow *ui;
+    QMovie *movie;
     QProcess *ffmpegProcess;
     int filesConverted = 0;
     bool canceled = false;

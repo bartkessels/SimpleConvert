@@ -19,7 +19,4 @@ public:
     static QString getFFmpegBinary();
     static bool getOverwriteOutput();
     static bool getShowNotificationWhenConverted();
-
-private:
-    static QSettings *getSettings();
 };

@@ -1,10 +1,4 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2018-05-20T18:04:40
-#
-#-------------------------------------------------
-
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -71,7 +65,7 @@ macx {
 
     appdata.files = resources/linux/net.bartkessels.simpleconvert.appdata.xml
     appdata.path = $$DATADIR/appdata/
-    
+
     qm.files = TRANSLATIONS
     qm.path = $$DATADIR/net.bartkessels.simpleconvert/translations
 

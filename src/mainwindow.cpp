@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QMovie *movie = new QMovie(":/icons/loading");
+    movie = new QMovie(":icons/loading");
     ui->lblLoadingIndicator->setMovie(movie);
     ui->lblLoadingIndicator->show();
     movie->start();
@@ -24,6 +24,7 @@ MainWindow::~MainWindow()
         ffmpegProcess->kill();
     }
 
+    delete movie;
     delete ui;
 }
 
