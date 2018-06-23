@@ -28,8 +28,8 @@
 			"sources": [
 				{
 					"type": "git",
-					"tag": "3.0",
-					"commit": "fba9f4f80aaee47412c34cdfc604dfd41b700c23",
+					"tag": "3.1",
+					"commit": "0eb3d4f526a88bbf41958c8360c1ab03cdda9a32",
 					"url": "https://github.com/bartkessels/simpleconvert"
 				}
 			]
