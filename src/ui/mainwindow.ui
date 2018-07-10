@@ -192,7 +192,7 @@
            </iconset>
           </property>
           <property name="shortcut">
-           <string notr="true" extracomment="Remove File"/>
+           <string notr="true" extracomment="Remove File">Del</string>
           </property>
          </widget>
         </item>
