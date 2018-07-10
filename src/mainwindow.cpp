@@ -261,16 +261,32 @@ void MainWindow::updateUI(bool filesConverting, int totalFilesToConvert)
     ui->actionConvert_Files->setEnabled(!filesConverting);
     ui->actionStop_conversion->setEnabled(filesConverting);
 
-    ui->lvFiles->setEnabled(!filesConverting);
-    ui->btnAddFile->setEnabled(!filesConverting);
-    ui->btnRemoveFile->setEnabled(!filesConverting);
-    ui->cbOutputType->setEnabled(!filesConverting);
-    ui->btnSelectOutputFolder->setEnabled(!filesConverting);
-
-    ui->lblStatus->setVisible(filesConverting);
-    ui->pbStatus->setVisible(filesConverting);
-    ui->lblLoadingIndicator->setVisible(filesConverting);
+    disableLayout(ui->hLayoutCentralWidget, !filesConverting, true);
+    disableLayout(ui->hLayoutStatusBar, true, filesConverting);
 
     ui->lblStatus->setText(tr("Converting %1 file(s)...").arg(totalFilesToConvert));
     ui->pbStatus->setRange(0, totalFilesToConvert);
+}
+
+/**
+ * @brief MainWindow::disableLayout
+ *
+ * Recursively disable or hide widgets inside
+ * a layout
+ *
+ * @param obj the layout which children should be iterated over
+ * @param enabled wheter or not the children should be enabled
+ * @param visible wheter or not the children should be visible
+ */
+void MainWindow::disableLayout(QLayoutItem *obj, bool enabled, bool visible)
+{
+    if (obj->widget() != NULL) {
+        obj->widget()->setEnabled(enabled);
+        obj->widget()->setVisible(visible);
+    } else if (obj->layout() != NULL) {
+        for (int i = 0; i < obj->layout()->count(); i++) {
+            QLayoutItem *widget = obj->layout()->itemAt(i);
+            disableLayout(widget, enabled, visible);
+        }
+    }
 }

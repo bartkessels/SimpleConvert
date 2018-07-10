@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include <QLayoutItem>
 #include <QStandardPaths>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -37,6 +38,7 @@ private slots:
     void on_fileConverted(int exitCode);
 
 private:
+    void disableLayout(QLayoutItem *obj, bool enabled, bool visible);
     void processNextFile();
     QString getOutputFilePath(QString inputFileName);
     void updateUI(bool filesConverting, int totalFilesToConvert);
