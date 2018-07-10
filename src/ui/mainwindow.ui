@@ -29,6 +29,9 @@
         <property name="spacing">
          <number>5</number>
         </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QListWidget" name="lvFiles">
           <property name="selectionMode">
@@ -113,6 +116,37 @@
           </item>
          </layout>
         </item>
+        <item>
+         <layout class="QHBoxLayout" name="hLayoutStatusBar">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="lblLoadingIndicator">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lblStatus">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="pbStatus">
+            <property name="value">
+             <number>0</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
       </item>
       <item>
@@ -163,37 +197,6 @@
          </widget>
         </item>
        </layout>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="hLayoutStatusBar">
-      <property name="spacing">
-       <number>5</number>
-      </property>
-      <property name="topMargin">
-       <number>5</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="lblLoadingIndicator">
-        <property name="text">
-         <string notr="true"/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="lblStatus">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QProgressBar" name="pbStatus">
-        <property name="value">
-         <number>0</number>
-        </property>
-       </widget>
       </item>
      </layout>
     </item>
