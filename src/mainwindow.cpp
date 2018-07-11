@@ -75,13 +75,12 @@ void MainWindow::on_btnRemoveFile_clicked()
  */
 void MainWindow::on_btnSelectOutputFolder_clicked()
 {
-    QString directory = QFileDialog::getExistingDirectory(this, tr("Select Output Directory"),
-                                                          QStandardPaths::locate(QStandardPaths::HomeLocation,
-                                                                                 QString(),
-                                                                                 QStandardPaths::LocateDirectory),
-                                                          QFileDialog::ShowDirsOnly);
-    if (directory.length() > 0) {
-        ui->editOutputFolder->setText(directory);
+    QFileDialog dialog(this, tr("Select Output Directory"));
+    dialog.setDirectory(QDir::homePath());
+    dialog.setFileMode(QFileDialog::Directory);
+
+    if (dialog.exec() && dialog.selectedFiles().count() > 0) {
+        ui->editOutputFolder->setText(dialog.selectedFiles().first());
     }
 }
 
@@ -115,8 +114,10 @@ void MainWindow::on_actionConvert_Files_triggered()
 /**
  * @brief MainWindow::on_actionStop_conversion_triggered
  *
- * Stop converting files if any conversion is going on and
- * the user wants to stop it
+ * Stop converting files if any conversion is going on
+ *
+ * If the user has specified to be prompted before cancelling
+ * the prompt will be shown
  */
 void MainWindow::on_actionStop_conversion_triggered()
 {
