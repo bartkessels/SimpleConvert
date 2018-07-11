@@ -120,11 +120,16 @@ void MainWindow::on_actionConvert_Files_triggered()
  */
 void MainWindow::on_actionStop_conversion_triggered()
 {
-    QMessageBox::StandardButton reply = QMessageBox::question(this, tr("Stop Conversion"), tr("Are you sure you want to"
-                                                                                              "stop the conversion?"),
-                                                              QMessageBox::Yes|QMessageBox::No);
+    bool showPrompt = Preferences::getShowPromptBeforeCancellation();
+    int messageBoxReply = QMessageBox::Yes;
 
-    if (reply == QMessageBox::Yes) {
+    if (showPrompt) {
+        messageBoxReply = QMessageBox::question(this, tr("Stop Conversion"), tr("Are you sure you want to"
+                                                                                "stop the conversion?"),
+                                                QMessageBox::Yes|QMessageBox::No);
+    }
+
+    if (messageBoxReply == QMessageBox::Yes) {
         ffmpegProcess->kill();
         canceled = true;
         updateUI(false, 0);

@@ -45,5 +45,5 @@ bool Preferences::getShowNotificationWhenConverted()
 bool Preferences::getShowPromptBeforeCancellation()
 {
     QSettings settings(ORG_NAME, APP_NAME);
-    return settings.value(SHOW_PROMPT_BEFORE_CANCELLATION).toBool();
+    return settings.value(SHOW_PROMPT_BEFORE_CANCELLATION, true).toBool();
 }
