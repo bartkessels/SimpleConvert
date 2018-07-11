@@ -66,7 +66,7 @@ This will create a RPM file which you can install using you package manager.
 
 ```
 $ cd data/packaging/flatpak
-$ flatpak-builder --repo=simpleconvert_repo simpleconvert net.bartkessels.simpleconvert.json
+$ flatpak-builder --repo=simpleconvert_repo simpleconvert net.bartkessels.SimpleConvert.json
 $ flatpak build-bundle simpleconvert_repo simpleconvert.flatpak net.bartkessels.SimpleConvert
 ```
 

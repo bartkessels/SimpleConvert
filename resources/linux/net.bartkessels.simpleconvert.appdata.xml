@@ -35,6 +35,7 @@
 	<url type="homepage">https://github.com/bartkessels/simpleconvert</url>
 	<developer_name>Bart Kessels</developer_name>
 	<update_contact>bartkessels_AT_bk-mail.com</update_contact>
+        <content_rating type="oars-1.0" />
 
 	<languages>
 		<lang percentage="100%">en_US</lang>
