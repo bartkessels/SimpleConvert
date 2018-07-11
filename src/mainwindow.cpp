@@ -132,7 +132,6 @@ void MainWindow::on_actionStop_conversion_triggered()
     if (messageBoxReply == QMessageBox::Yes) {
         ffmpegProcess->kill();
         canceled = true;
-        updateUI(false, 0);
     }
 }
 
