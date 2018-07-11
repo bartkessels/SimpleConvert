@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
     if (scTranslationsFound) {
         app.installTranslator(&scTranslator);
     }
+
     /* Display main window */
     MainWindow w;
     w.show();

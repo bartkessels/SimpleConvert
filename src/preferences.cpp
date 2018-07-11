@@ -18,6 +18,12 @@ void Preferences::setShowNotificationWhenConverted(bool showNotificationWhenConv
     settings.setValue(SHOW_NOTIFICATION_CONVERTED, showNotificationWhenConverted);
 }
 
+void Preferences::setShowPromptBeforeCancellation(bool showPromptBeforeCancellation)
+{
+    QSettings settings(ORG_NAME, APP_NAME);
+    settings.setValue(SHOW_PROMPT_BEFORE_CANCELLATION, showPromptBeforeCancellation);
+}
+
 QString Preferences::getFFmpegBinary()
 {
     QSettings settings(ORG_NAME, APP_NAME);
@@ -34,4 +40,10 @@ bool Preferences::getShowNotificationWhenConverted()
 {
     QSettings settings(ORG_NAME, APP_NAME);
     return settings.value(SHOW_NOTIFICATION_CONVERTED).toBool();
+}
+
+bool Preferences::getShowPromptBeforeCancellation()
+{
+    QSettings settings(ORG_NAME, APP_NAME);
+    return settings.value(SHOW_PROMPT_BEFORE_CANCELLATION).toBool();
 }
