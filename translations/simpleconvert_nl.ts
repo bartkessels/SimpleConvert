@@ -4,92 +4,107 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="45"/>
+        <location filename="../src/ui/mainwindow.ui" line="51"/>
         <source>Output extension:</source>
         <translation>Uitvoer extensie:</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="77"/>
+        <location filename="../src/ui/mainwindow.ui" line="83"/>
         <source>Output Folder:</source>
         <translation>Uitvoer Folder:</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="102"/>
+        <location filename="../src/ui/mainwindow.ui" line="108"/>
         <source>Browse</source>
         <translation>Selecteer</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="203"/>
+        <location filename="../src/ui/mainwindow.ui" line="216"/>
         <source>He&amp;lp</source>
         <translation>He&amp;lp</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="210"/>
+        <location filename="../src/ui/mainwindow.ui" line="223"/>
         <source>File</source>
         <translation>Bestand</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="216"/>
+        <location filename="../src/ui/mainwindow.ui" line="230"/>
         <source>Edit</source>
-        <translation>Bewerk</translation>
+        <translation>Bewerken</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="226"/>
+        <location filename="../src/ui/mainwindow.ui" line="240"/>
         <source>&amp;About SimpleConvert</source>
         <translation>&amp;Over SimpleConvert</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="231"/>
+        <location filename="../src/ui/mainwindow.ui" line="245"/>
         <source>About &amp;Qt</source>
         <translation>Over &amp;Qt</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="236"/>
+        <location filename="../src/ui/mainwindow.ui" line="250"/>
         <source>&amp;Convert Files</source>
         <translation>&amp;Converteer Bestanden</translation>
     </message>
     <message>
-        <location filename="../src/ui/mainwindow.ui" line="244"/>
+        <location filename="../src/ui/mainwindow.ui" line="258"/>
         <source>&amp;Preferences</source>
         <translation>&amp;Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="27"/>
+        <location filename="../src/ui/mainwindow.ui" line="263"/>
+        <source>&amp;Stop conversion</source>
+        <translation>Conversie &amp;stoppen</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="39"/>
         <source>Open Media Files</source>
         <translation>Open Media Bestanden</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="66"/>
+        <location filename="../src/mainwindow.cpp" line="78"/>
         <source>Select Output Directory</source>
         <translation>Selecteer Uitvoer Folder</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="92"/>
+        <location filename="../src/mainwindow.cpp" line="102"/>
         <source>No Output Folder</source>
         <translation>Geen Uitvoermap</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="92"/>
+        <location filename="../src/mainwindow.cpp" line="102"/>
         <source>Please specify an output folder...</source>
         <translation>Selecteer een uitvoermap...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="97"/>
+        <location filename="../src/mainwindow.cpp" line="107"/>
         <source>Output Folder Does Not Exist</source>
         <translation>Uitvoermap bestaat niet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="97"/>
+        <location filename="../src/mainwindow.cpp" line="107"/>
         <source>The specified output folder does not seem to exist...</source>
         <translation>De gegeven uitvoermap bestaat niet...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="155"/>
+        <location filename="../src/mainwindow.cpp" line="127"/>
+        <source>Stop Conversion</source>
+        <translation>Conversie stoppen</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="127"/>
+        <source>Are you sure you want tostop the conversion?</source>
+        <translation>Weet je zeker dat je de huidige conversie wilt annuleren?</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="167"/>
         <source>About SimpleConvert</source>
         <translation>Over SimpleConvert</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="155"/>
+        <location filename="../src/mainwindow.cpp" line="167"/>
         <source>SimpleConvert is a small application to convert video and/or audio files to any filetype using ffmpeg.
 
 This application aims to provide an easy to understand interface so everyone will be able to use the power of ffmpeg</source>
@@ -100,17 +115,17 @@ Deze applicatie streeft ernaar om een gemakkelijk te gebruiken interface te zijn
 kan maken van de kracht van ffmpeg</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="187"/>
+        <location filename="../src/mainwindow.cpp" line="198"/>
         <source>Converting Finished</source>
         <translation>Klaar Met Converteren</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
+        <location filename="../src/mainwindow.cpp" line="199"/>
         <source>All your files are converted</source>
         <translation>Al je bestanden zijn geconverteerd</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="227"/>
+        <location filename="../src/mainwindow.cpp" line="272"/>
         <source>Converting %1 file(s)...</source>
         <translation>%1 bestand(en) converteren...</translation>
     </message>
@@ -123,14 +138,24 @@ kan maken van de kracht van ffmpeg</translation>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../src/ui/preferencesdialog.ui" line="24"/>
+        <location filename="../src/ui/preferencesdialog.ui" line="29"/>
+        <source>FFMPEG Binary:</source>
+        <translation>FFMPEG uitvoerbestand:</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/preferencesdialog.ui" line="41"/>
         <source>Overwrite output when exists</source>
         <translation>Uitvoerbestanden overschrijven als ze bestaan</translation>
     </message>
     <message>
-        <location filename="../src/ui/preferencesdialog.ui" line="31"/>
+        <location filename="../src/ui/preferencesdialog.ui" line="48"/>
         <source>Show notification when converting is done</source>
         <translation>Toon notificatie zodra alle bestanden zijn geconverteerd</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/preferencesdialog.ui" line="55"/>
+        <source>Show prompt before cancelling running conversion</source>
+        <translation>Toon melding vóór het annuleren van een conversie</translation>
     </message>
 </context>
 </TS>
