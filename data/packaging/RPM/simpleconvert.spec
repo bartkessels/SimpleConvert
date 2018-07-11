@@ -1,5 +1,5 @@
 Name:			simpleconvert
-Version:		3.1
+Version:		3.2
 Release:		1%{dist}
 Summary:		Application to convert multiple files to another filetype using FFMPEG
 Group:			Multimedia
@@ -42,6 +42,10 @@ make install
 %{_datarootdir}/icons/hicolor/*/apps/net.bartkessels.simpleconvert.*
 
 %changelog
+* Wed Jul 11 2018 Bart Kessels <bartkessels@bk-mail.com> 3.2
+- Add setting to hide prompt before cancelling a request
+- Add shortcuts for adding and removing media files
+
 * Sat Jun 23 2018 Bart Kessels <bartkessels@bk-mail.com> 3.1
 - Fix memory leaks
 - Fix cancel button preferences window
