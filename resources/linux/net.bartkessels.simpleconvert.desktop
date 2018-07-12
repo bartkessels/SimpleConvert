@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=Simple Convert
+Name=SimpleConvert
 Comment=Convert multiple files to another filetype
 Exec=simpleconvert
 Terminal=false
 Type=Application
 Categories=Qt;Multimedia;
 StartupNotify=true
-Icon=net.bartkessels.simpleconvert
+Icon=net.bartkessels.SimpleConvert
