@@ -37,8 +37,8 @@ make install
 %files
 %{_bindir}/simpleconvert
 %{_datarootdir}/net.bartkessels.simpleconvert/translations/*
-%{_datarootdir}/appdata/net.bartkessels.simpleconvert.appdata.xml
-%{_datarootdir}/applications/net.bartkessels.simpleconvert.desktop
+%{_datarootdir}/appdata/net.bartkessels.SimpleConvert.appdata.xml
+%{_datarootdir}/applications/net.bartkessels.SimpleConvert.desktop
 %{_datarootdir}/icons/hicolor/*/apps/net.bartkessels.SimpleConvert.*
 
 %changelog

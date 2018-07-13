@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018 Bart Kessels <bartkessels@bk-mail.com> -->
 <component type="desktop">
-	<id>net.bartkessels.simpleconvert.desktop</id>
+	<id>net.bartkessels.SimpleConvert.desktop</id>
 	<metadata_licence>CC0</metadata_licence>
 	<project_license>GPL-3.0+</project_license>
 	<name>SimpleConvert</name>

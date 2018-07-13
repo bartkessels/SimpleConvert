@@ -60,10 +60,10 @@ macx {
     icon.files = resources/linux/icons/*
     icon.path = $$DATADIR/icons/hicolor
 
-    desktop.files = resources/linux/net.bartkessels.simpleconvert.desktop
+    desktop.files = resources/linux/net.bartkessels.SimpleConvert.desktop
     desktop.path = $$DATADIR/applications/
 
-    appdata.files = resources/linux/net.bartkessels.simpleconvert.appdata.xml
+    appdata.files = resources/linux/net.bartkessels.SimpleConvert.appdata.xml
     appdata.path = $$DATADIR/appdata/
 
     qm.files = TRANSLATIONS
