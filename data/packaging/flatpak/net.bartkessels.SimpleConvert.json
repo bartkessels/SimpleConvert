@@ -6,6 +6,7 @@
 	"command": "simpleconvert",
 	"finish-args": [
 		"--share=ipc",
+		"--device=dri",
 		"--socket=x11",
 		"--socket=wayland",
 		"--filesystem=host"
