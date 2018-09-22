@@ -20,9 +20,9 @@ MainWindow::~MainWindow()
     /* Kill current process if there
      * are files being converted
      */
-//    if (filesConverted > 0) {
-//        ffmpegProcess->kill();
-//    }
+    if (filesConverted > 0) {
+        ffmpegProcess->kill();
+    }
 
     delete movie;
     delete ui;
@@ -131,8 +131,8 @@ void MainWindow::on_actionStop_conversion_triggered()
     }
 
     if (messageBoxReply == QMessageBox::Yes) {
-//        ffmpegProcess->kill();
-//        canceled = true;
+        ffmpegProcess->kill();
+        canceled = true;
     }
 }
 
@@ -180,31 +180,31 @@ void MainWindow::on_actionAbout_SimpleConvert_triggered()
  *
  * @param int exitCode the code with which the process is exited
  */
-//void MainWindow::on_fileConverted(int exitCode)
-//{
-//    Q_UNUSED (exitCode)
+void MainWindow::on_fileConverted(int exitCode)
+{
+    Q_UNUSED (exitCode)
 
-//    int totalFilesToConvert = ui->lvFiles->count();
-//    filesConverted++;
+    int totalFilesToConvert = ui->lvFiles->count();
+    filesConverted++;
 
-//    ui->pbStatus->setValue(filesConverted);
+    ui->pbStatus->setValue(filesConverted);
 
-//    if (filesConverted >= totalFilesToConvert || canceled) {
-//        updateUI(false, 0);
-//        ffmpegProcess->deleteLater();
+    if (filesConverted >= totalFilesToConvert || canceled) {
+        updateUI(false, 0);
+        ffmpegProcess->deleteLater();
 
         /* Check if we need to show a notification */
-//        if (Preferences::getShowNotificationWhenConverted() && !canceled) {
-//            QMessageBox::information(this, tr("Converting Finished"),
-//                                     tr("All your files are converted"));
-//        }
+        if (Preferences::getShowNotificationWhenConverted() && !canceled) {
+            QMessageBox::information(this, tr("Converting Finished"),
+                                     tr("All your files are converted"));
+        }
 
-//        filesConverted = 0;
-//        canceled = false;
-//    } else {
-//        processNextFile();
-//    }
-//}
+        filesConverted = 0;
+        canceled = false;
+    } else {
+        processNextFile();
+    }
+}
 
 /**
  * @brief MainWindow::processNextFile
@@ -213,42 +213,26 @@ void MainWindow::on_actionAbout_SimpleConvert_triggered()
  */
 void MainWindow::processNextFile()
 {
-//    QString ffmpegBinary = Preferences::getFFmpegBinary();
-//    int nextFileIndex = filesConverted;
-//    QList files= dynamic_cast<QList<ListItemFile*>>(ui->lvFiles->items());
+    QString ffmpegBinary = Preferences::getFFmpegBinary();
+    int nextFileIndex = filesConverted;
+    ListItemFile *currentFile = dynamic_cast<ListItemFile*>(ui->lvFiles->item(nextFileIndex));
 
-    QList<QListWidgetItem*> files = ui->lvFiles->findItems("*", Qt::MatchWildcard);
+    QStringList ffmpegArguments;
+    ffmpegArguments.append("-i");
+    ffmpegArguments.append(currentFile->getFilePath());
+    ffmpegArguments.append(getOutputFilePath(currentFile->getFileName()));
 
-    if (files.size() < 1) {
-        qInfo() << "files.size < 1";
-        return;
+    /* Check if we should overwrite the output file if it exists */
+    if (Preferences::getOverwriteOutput()) {
+        ffmpegArguments.append("-y");
+    } else {
+        ffmpegArguments.append("-n");
     }
 
-    qInfo() << dynamic_cast<ListItemFile*>(files.at(0))->getFileName();
-
-    // check if output of cast is not NULL, of it is null
-    // the cast went wrong https://stackoverflow.com/questions/2253168/dynamic-cast-and-static-cast-in-c
-
-
-//    ListItemFile *file = dynamic_cast<ListItemFile*>(files.at(0));
-//    file->getFileName();
-
-//    QStringList ffmpegArguments;
-//    ffmpegArguments.append("-i");
-//    ffmpegArguments.append(currentFile->getFilePath());
-//    ffmpegArguments.append(getOutputFilePath(currentFile->getFileName()));
-
-//    /* Check if we should overwrite the output file if it exists */
-//    if (Preferences::getOverwriteOutput()) {
-//        ffmpegArguments.append("-y");
-//    } else {
-//        ffmpegArguments.append("-n");
-//    }
-
-//    ffmpegProcess = new QProcess(this);
-//    connect (ffmpegProcess, SIGNAL(finished(int)), this, SLOT(on_fileConverted(int)));
-//    ffmpegProcess->setProcessChannelMode(QProcess::MergedChannels);
-//    ffmpegProcess->start(ffmpegBinary, ffmpegArguments);
+    ffmpegProcess = new QProcess(this);
+    connect (ffmpegProcess, SIGNAL(finished(int)), this, SLOT(on_fileConverted(int)));
+    ffmpegProcess->setProcessChannelMode(QProcess::MergedChannels);
+    ffmpegProcess->start(ffmpegBinary, ffmpegArguments);
 }
 
 /**

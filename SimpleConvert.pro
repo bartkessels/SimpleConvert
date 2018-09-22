@@ -21,15 +21,13 @@ SOURCES += \
     src/mainwindow.cpp \
     src/listitemfile.cpp \
     src/preferencesdialog.cpp \
-    src/preferences.cpp \
-    src/conversioncontroller.cpp
+    src/preferences.cpp
 
 HEADERS += \
     src/mainwindow.h \
     src/listitemfile.h \
     src/preferencesdialog.h \
-    src/preferences.h \
-    src/conversioncontroller.h
+    src/preferences.h
 
 FORMS += \
     src/ui/mainwindow.ui \

@@ -35,10 +35,7 @@ private slots:
     void on_actionPreferences_triggered();
     void on_actionAbout_Qt_triggered();
     void on_actionAbout_SimpleConvert_triggered();
-    // -------------------------------
-//    void on_NoFFMPEGBinary_triggered();
-//    void on_NoOutputDirectory_triggered();
-//    void on_UpdateUI_triggered(int filesConverted, int totalFiles);
+    void on_fileConverted(int exitCode);
 
 private:
     void disableLayout(QLayoutItem *obj, bool enabled, bool visible);
@@ -48,4 +45,7 @@ private:
 
     Ui::MainWindow *ui;
     QMovie *movie;
+    QProcess *ffmpegProcess;
+    int filesConverted = 0;
+    bool canceled = false;
 };
