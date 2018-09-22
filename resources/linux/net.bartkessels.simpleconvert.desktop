@@ -6,5 +6,5 @@ Terminal=false
 Type=Application
 Categories=Qt;Multimedia;
 StartupNotify=true
-Icon=net.bartkessels.SimpleConvert
-Name[en_US]=net.bartkessels.SimpleConvert.desktop
+Icon=net.bartkessels.simpleconvert
+Name[en_US]=SimpleConvert
