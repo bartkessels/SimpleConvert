@@ -1,6 +1,6 @@
 # SimpleConvert
 
-Application to convert multiple files to another filetype using FFMPEG.
+Simple Convert is a small application in which you can convert multiple files to another file type at once using FFMPEG.
 
 ## Screenshots
 
